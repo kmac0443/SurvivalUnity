@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SurvivialUnityPrototype.Scripts.Classes.Person
+namespace SurvivalUnityModel.Scripts.Classes.Person
 {
     class Player : Person
     {
