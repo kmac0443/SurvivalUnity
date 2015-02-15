@@ -8,8 +8,13 @@ namespace ModelRepresentation.ModelObjects.Person
 {
     class NPC : Person
     {
+        private List<string> dialogue;
+        private Random rand;
+
         public NPC()
         {
+            this.dialogue = new List<string>();
+            this.rand = new Random();
         }
 
         public override int DealDamage()
@@ -34,6 +39,26 @@ namespace ModelRepresentation.ModelObjects.Person
         public override void OnTime()
         {
             Console.WriteLine("OnTime: I'm a NPC");
+        }
+
+        public string Speak()
+        {
+            if (dialogue.Count == 0)
+            {
+                return "Hello World";
+            }
+            int radomIndex = rand.Next(this.dialogue.Count);
+            return dialogue[radomIndex];
+        }
+
+        public List<string> getDialogue()
+        {
+            return this.dialogue;
+        }
+
+        public void setDialogue(List<string> phrases)
+        {
+            this.dialogue = phrases;
         }
 
         public override string Info()

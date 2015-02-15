@@ -15,6 +15,7 @@ namespace ModelRepresentation.ModelObjects.Items
         private int damage;
         private int resistance;
         private int durability;
+        private int maxDurability;
 
         // Default Constructor
         public Item()
@@ -26,6 +27,7 @@ namespace ModelRepresentation.ModelObjects.Items
             this.Damage = 0;
             this.Resistance = 0;
             this.Durability = 1;
+            this.MaxDurability = 1;
         }
 
         // Specific Constructor
@@ -38,6 +40,7 @@ namespace ModelRepresentation.ModelObjects.Items
             this.Damage = 0;
             this.Resistance = 0;
             this.Durability = 1;
+            this.MaxDurability = 1;
         }
 
         // Specific Constructor
@@ -50,6 +53,7 @@ namespace ModelRepresentation.ModelObjects.Items
             this.Damage = dmg;
             this.Resistance = res;
             this.Durability = dur;
+            this.MaxDurability = this.Durability;
         }
 
         public Guid ID
@@ -102,6 +106,18 @@ namespace ModelRepresentation.ModelObjects.Items
                 if (value >= 0)
                 {
                     this.durability = value;
+                }
+            }
+        }
+
+        public int MaxDurability
+        {
+            get { return this.maxDurability; }
+            set
+            {
+                if (value >= 0)
+                {
+                    this.maxDurability = value;
                 }
             }
         }

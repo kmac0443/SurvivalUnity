@@ -14,6 +14,8 @@ namespace ModelRepresentation.ModelObjects.Person
 
         public Player()
         {
+            this.attributes = new AttributeManager();
+            this.skills = new SkillManager();
         }
 
         public override int DealDamage()
