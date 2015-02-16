@@ -43,6 +43,12 @@ ehthumbs.db
 *.user
 *.sln.docstates
 *.sln
+
+*.sln.meta
+App.config
+App.config.meta
+AssemblyInfo.cs.meta
+
 *.appxmanifest
 *.csproj
 AssemblyInfo.cs
