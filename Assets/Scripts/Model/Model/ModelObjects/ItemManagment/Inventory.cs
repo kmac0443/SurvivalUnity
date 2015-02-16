@@ -1,9 +1,6 @@
 ﻿using ModelRepresentation.ModelObjects.Items;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelRepresentation.ModelObjects.ItemManagment
 {
@@ -136,7 +133,7 @@ namespace ModelRepresentation.ModelObjects.ItemManagment
 
         public override string Info()
         {
-            StringBuilder toString = new StringBuilder();
+            StringBuilder toString = new System.Text.StringBuilder();
             toString.Append("Inventory:\n");
             toString.Append("Is ");
             toString.Append(base.Info());
