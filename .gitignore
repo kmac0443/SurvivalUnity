@@ -62,6 +62,12 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+/Assets/Scripts/Model/Model.meta
+/Assets/Scripts/Model/Model.sln
+/Assets/Scripts/Model/Model.sln.meta
+/Assets/Scripts/Model/ModelUnitTests.meta
+/Assets/Scripts/Model/TestResults/
+/Assets/Scripts/Model/TestResults.meta
 
 # Roslyn cache directories
 *.ide/
