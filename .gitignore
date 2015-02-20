@@ -43,6 +43,15 @@ ehthumbs.db
 *.user
 *.sln.docstates
 *.sln
+
+*.sln.meta
+App.config
+App.config.meta
+AssemblyInfo.cs.meta
+*.dgml
+*.dgml.meta
+Model.csproj.user.meta
+
 *.appxmanifest
 *.csproj
 AssemblyInfo.cs
@@ -62,6 +71,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+Assets/Scripts/Model/UnitTests/
 
 # Roslyn cache directories
 *.ide/
