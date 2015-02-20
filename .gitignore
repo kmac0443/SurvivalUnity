@@ -49,6 +49,8 @@ App.config
 App.config.meta
 AssemblyInfo.cs.meta
 *.dgml
+*.dgml.meta
+Model.csproj.user.meta
 
 *.appxmanifest
 *.csproj

@@ -8,6 +8,12 @@ namespace Model.ModelObjects.ItemManagement
     {
         private List<Item> equipment;
         private const int EQUIPABLECOUNT = 5;
+        // 0 Head
+        // 1 Left Arm
+        // 2 Right Arm
+        // 3 Torso
+        // 4 Boots
+        // ? Legs
 
         // Default Constructor
         public Inventory()

@@ -5,22 +5,22 @@ using System.Collections.Generic;
 
 namespace Model.World
 {
-    public class Mineable
+    public class ResourceObject
     {
         private StorageContainer storage;
         private bool itemsLeft;
-        private int effort;
-        private int currentEffort;
+        private int staminaRequired;
+        private int timeRequired;
 
-        public Mineable()
+        public ResourceObject()
         {
             Active = false;
-            Items = new StorageContainer();
-            EffortRequired = 1;
-            currentEffort = 0;            
+            Resources = new StorageContainer();
+            StaminaRequired = 1;
+            TimeRequired = 1;
         }
 
-        public StorageContainer Items
+        public StorageContainer Resources
         {
             get { return this.storage; }
             set
@@ -28,7 +28,6 @@ namespace Model.World
                 if(null == value)
                 {
                     Active = false;
-                    this.currentEffort = 0;
                     return;
                 }
 
@@ -44,10 +43,16 @@ namespace Model.World
             }
         }
 
-        public int EffortRequired
+        public int StaminaRequired
         {
-            get { return this.effort; }
-            set { this.effort = value; }
+            get { return this.staminaRequired; }
+            set { this.staminaRequired = value; }
+        }
+
+        public int TimeRequired 
+        {
+            get { return this.timeRequired; }
+            set { this.timeRequired = value; }
         }
 
         public bool Active
@@ -56,26 +61,20 @@ namespace Model.World
             set { this.itemsLeft = value; }
         }
 
-        public Item Mine()
+        public Item OnGather()
         {
             if (!Active)
             {
                 return null;
             }
-            currentEffort++;
-            if (currentEffort >= EffortRequired)
-            {
-                currentEffort -= EffortRequired;
-                Item i = Items.Items[0];
-                Items.RemoveItem(i);
 
-                if (Items.Capacity == 0)
-                {
-                    Active = false;
-                }
-                return i;
+            Item i = Resources.Items[0];
+            Resources.RemoveItem(i);
+            if (Resources.Capacity == 0)
+            {
+                Active = false;
             }
-            return null;
+            return i;
         }
     }
 }
