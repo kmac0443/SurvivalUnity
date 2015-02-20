@@ -48,6 +48,7 @@ ehthumbs.db
 App.config
 App.config.meta
 AssemblyInfo.cs.meta
+*.dgml
 
 *.appxmanifest
 *.csproj
