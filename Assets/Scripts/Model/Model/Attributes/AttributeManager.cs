@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Model.ModelObjects.Attributes
 {
-    class AttributeManager : IDamageAffecting
+    public class AttributeManager : IDamageAffecting
     {
         private int constitution;
         private int strength;

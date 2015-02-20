@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Model.ModelObjects.Person
 {
-    class Person : IUnity
+    public class Person : IUnity
     {
         protected Inventory inventory;
 

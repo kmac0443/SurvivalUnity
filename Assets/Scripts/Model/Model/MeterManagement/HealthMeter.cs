@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Model.ModelObjects.MeterManagment
 {
-    class HealthMeter : Meter
+    public class HealthMeter : Meter
     {
 
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Model.ModelObjects
 {
-    interface IDamageAffecting
+    public interface IDamageAffecting
     {
         int OutgoingDamage();
         int DamageResistance();

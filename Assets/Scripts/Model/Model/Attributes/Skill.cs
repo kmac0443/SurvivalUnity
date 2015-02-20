@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Model.ModelObjects.Attributes
 {
-    class Skill : IDamageAffecting
+    public class Skill : IDamageAffecting
     {
         private Guid uniqueID;
 

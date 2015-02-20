@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Model.ModelObjects.Person
 {
-    class NPC : Person
+    public class NPC : Person
     {
         private List<string> dialogue;
         private Random rand;

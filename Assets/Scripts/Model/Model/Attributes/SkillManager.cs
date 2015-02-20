@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Model.ModelObjects.Attributes
 {
-    class SkillManager : IDamageAffecting
+    public class SkillManager : IDamageAffecting
     {
         private List<Skill> skills;
 

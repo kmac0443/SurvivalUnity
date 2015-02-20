@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Model.ModelObjects.Person
 {
-    class Player : Person
+    public class Player : Person
     {
         private AttributeManager attributes;
         protected SkillManager skills;

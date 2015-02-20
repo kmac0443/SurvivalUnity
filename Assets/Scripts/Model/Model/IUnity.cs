@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Model.ModelObjects
 {
-    interface IUnity
+    public interface IUnity
     {
         void OnUpdate();
         void OnTime();
