@@ -18,7 +18,14 @@ namespace Model.ModelObjects.MeterManagment
         public int Max
         {
             get { return this.max; }
-            set { this.max = value; }
+            set 
+            {
+                this.max = value;
+                if (this.current > this.max)
+                {
+                    this.current = this.max;
+                }
+            }
         }
 
         public int Current

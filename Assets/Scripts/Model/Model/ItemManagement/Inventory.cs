@@ -59,7 +59,7 @@ namespace Model.ModelObjects.ItemManagement
             {
                 return false;
             }
-            if (item.Equip < 0 || item.Equip > EQUIPABLECOUNT)   // Equip Code of -1 means it's non equipable
+            if (item.Equip < 0 || item.Equip > EQUIPABLECOUNT - 1)   // Equip Code of -1 means it's non equipable
             {
                 return false;
             }
@@ -92,21 +92,15 @@ namespace Model.ModelObjects.ItemManagement
 
         public bool UnEquipItem(Item item)
         {
-            for (int i = 0; i < EQUIPABLECOUNT; i++)
+            // ID Check still cause Nate is paranoid
+            if (Equipment[item.Equip].ID == item.ID)
             {
-                if (Equipment[i] == null)   // Nothing currently Equiped in that slot
+                if (this.AddItem(Equipment[item.Equip])) // Add back to Inventory
                 {
-                    continue;
+                    Equipment[item.Equip] = null;
+                    return true;
                 }
-                else if (Equipment[i].ID == item.ID)
-                {
-                    if (this.AddItem(Equipment[i])) // Add back to Inventory
-                    {
-                        Equipment[i] = null;
-                        return true;
-                    }
-                    return false;
-                }
+                return false;
             }
             return false;
         }
@@ -143,6 +137,14 @@ namespace Model.ModelObjects.ItemManagement
             toString.Append("Inventory:\n");
             toString.Append("Is ");
             toString.Append(base.Info());
+            toString.Append("Has Equipment:\n");
+            for (int i = 0; i < this.equipment.Count; i++)
+            {
+                if (this.equipment[i] != null)
+                {
+                    toString.Append(this.equipment[i].Info());
+                }
+            }
             return toString.ToString();
         }
     }

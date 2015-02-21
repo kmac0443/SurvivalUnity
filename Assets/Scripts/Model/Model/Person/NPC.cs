@@ -25,7 +25,13 @@ namespace Model.ModelObjects.Person
         {
             int damageAfterResistance = damage;
             damageAfterResistance -= base.inventory.DamageResistance();
-            //TODO
+
+            if (damageAfterResistance < 0)
+            {
+                damageAfterResistance = 0;
+            }
+
+            //TODO hurt health...
         }
 
         public override void OnUpdate()

@@ -30,7 +30,13 @@ namespace Model.ModelObjects.Person
             damageAfterResistance -= this.attributes.DamageResistance();
             damageAfterResistance -= base.inventory.DamageResistance();
             damageAfterResistance -= this.skills.DamageResistance();
-            //TODO
+
+            if (damageAfterResistance < 0)
+            {
+                damageAfterResistance = 0;
+            }
+
+            //TODO Have damage affect health.
         }
 
         public override void OnUpdate()

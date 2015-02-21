@@ -17,6 +17,18 @@ namespace Model.ModelObjects.ItemManagement
             this.Items = new List<Item>();
         }
 
+        private bool Contains(Guid id)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].ID == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public int MaxCapacity
         {
             get { return this.maxCapacity; }
@@ -75,12 +87,9 @@ namespace Model.ModelObjects.ItemManagement
                 return false;
             }
             // Duplicate Check
-            for (int i = 0; i < items.Count; i++)
+            if (this.Contains(item.ID))
             {
-                if (items[i].ID == item.ID)
-                {
-                    return false;
-                }
+                return false;
             }
             // Capacity Check
             if (this.Capacity + item.Girth <= this.MaxCapacity)

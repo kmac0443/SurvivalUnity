@@ -131,7 +131,6 @@ namespace Model.ModelObjects.Items
 
         public virtual void OnUse()
         {
-            Console.WriteLine(this.Label + " Used.");
             this.Durability--;
         }
 
