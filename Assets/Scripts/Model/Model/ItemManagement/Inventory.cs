@@ -1,4 +1,5 @@
 ﻿using Model.ModelObjects.Items;
+using Model.ItemManagement;
 using System;
 using System.Collections.Generic;
 
@@ -8,12 +9,7 @@ namespace Model.ModelObjects.ItemManagement
     {
         private List<Item> equipment;
         private const int EQUIPABLECOUNT = 5;
-        // 0 Head
-        // 1 Left Arm
-        // 2 Right Arm
-        // 3 Torso
-        // 4 Boots
-        // ? Legs
+        // See EquipmentEnum
 
         // Default Constructor
         public Inventory()
@@ -30,15 +26,10 @@ namespace Model.ModelObjects.ItemManagement
 
         // Specific Constructor
         public Inventory(int max, int current)
+            : this()
         {
             this.MaxCapacity = max;
             this.Capacity = current;
-            this.Items = new List<Item>();
-            this.Equipment = new List<Item>();
-            for (int i = 0; i < EQUIPABLECOUNT; i++)
-            {
-                this.Equipment.Add(null);
-            }
         }
 
         public List<Item> Equipment
@@ -59,48 +50,146 @@ namespace Model.ModelObjects.ItemManagement
             {
                 return false;
             }
-            if (item.Equip < 0 || item.Equip > EQUIPABLECOUNT - 1)   // Equip Code of -1 means it's non equipable
+            if (item.Equip == EquipmentSlot.Unequipable)
             {
                 return false;
             }
-            if (this.Equipment[item.Equip] == null) // If there is nothing in that Equipment spot
+
+            // Equip Item - Arms Case
+            if(item.Equip.Equals(EquipmentSlot.LeftArm) || item.Equip.Equals(EquipmentSlot.RightArm) || item.Equip.Equals(EquipmentSlot.BothArms))
             {
-                this.Equipment[item.Equip] = item;  // Put item into Equipment
-                this.RemoveItem(item);              // Remove item from inventory
+                return EquipArmSlots(item);
+            }
+            
+            // Everything Else - Nothing There
+            if (this.Equipment[(int)item.Equip] == null)    // If there is nothing in that Equipment spot
+            {
+                this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
+                this.RemoveItem(item);                      // Remove item from inventory
                 return true;
             }
-            if (this.Equipment[item.Equip] != null) // There is equipment currently there
+
+            // Everything Else - Something There
+            if (this.Equipment[(int)item.Equip] != null)    // There is equipment currently there
             {
                 // Can we add the currently equiped item back into the inventory?
-                if (UnEquipItem(Equipment[item.Equip]))
+                if (UnEquipItem(Equipment[(int)item.Equip]))
                 {
-                    this.Equipment[item.Equip] = item;  // Put item into Equipment
-                    this.RemoveItem(item);              // Remove item from inventory
+                    this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
+                    this.RemoveItem(item);                      // Remove item from inventory
                     return true;
                 }
                 // Edge case where Inventory is full but we could swap items
-                else if (Equipment[item.Equip].Girth == item.Girth)
+                else if (Equipment[(int)item.Equip].Girth == item.Girth)
                 {
-                    this.RemoveItem(item);              // Make space
-                    this.AddItem(Equipment[item.Equip]);// Move from Equipment into Inventory
-                    this.Equipment[item.Equip] = item;  // Put item into Equipment
+                    this.RemoveItem(item);                      // Remove item to be equiped from inventory
+                    this.AddItem(Equipment[(int)item.Equip]);   // Move other item from Equipment into Inventory
+                    this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
                     return true;
                 }
             }
             return false;
         }
 
-        public bool UnEquipItem(Item item)
+        private bool EquipArmSlots(Item item)
         {
-            // ID Check still cause Nate is paranoid
-            if (Equipment[item.Equip].ID == item.ID)
+            // Both Arms Case
+            if (item.Equip.Equals(EquipmentSlot.BothArms))
             {
-                if (this.AddItem(Equipment[item.Equip])) // Add back to Inventory
+                int neededSpace = 0;
+                if (this.equipment[(int)EquipmentSlot.LeftArm] != null)
                 {
-                    Equipment[item.Equip] = null;
+                    neededSpace += this.equipment[(int)EquipmentSlot.LeftArm].Girth;
+                }
+                if (this.equipment[(int)EquipmentSlot.RightArm] != null)
+                {
+                    neededSpace += this.equipment[(int)EquipmentSlot.RightArm].Girth;
+                }
+                if (this.equipment[(int)EquipmentSlot.BothArms] != null)
+                {
+                    neededSpace += this.equipment[(int)EquipmentSlot.BothArms].Girth;
+                }
+
+                // Do we Have room to move Items from Equipment to Inventory?
+                if (this.MaxCapacity - this.Capacity >= neededSpace)
+                {
+                    bool left = UnEquipItem(Equipment[(int)EquipmentSlot.LeftArm]);
+                    bool right = UnEquipItem(Equipment[(int)EquipmentSlot.RightArm]);
+                    bool both = UnEquipItem(Equipment[(int)EquipmentSlot.BothArms]);
+                    this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
+                    this.RemoveItem(item);                      // Remove item from inventory
                     return true;
                 }
                 return false;
+            }
+
+            // Right Arm Case
+            if (item.Equip.Equals(EquipmentSlot.RightArm))
+            {
+                int neededSpace = 0;
+                if (this.equipment[(int)EquipmentSlot.RightArm] != null)
+                {
+                    neededSpace += this.equipment[(int)EquipmentSlot.RightArm].Girth;
+                }
+                if (this.equipment[(int)EquipmentSlot.BothArms] != null)
+                {
+                    neededSpace += this.equipment[(int)EquipmentSlot.BothArms].Girth;
+                }
+
+                // Do we Have room to move Items from Equipment to Inventory?
+                if (this.MaxCapacity - this.Capacity >= neededSpace)
+                {
+                    bool right = UnEquipItem(Equipment[(int)EquipmentSlot.RightArm]);
+                    bool both = UnEquipItem(Equipment[(int)EquipmentSlot.BothArms]);
+                    this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
+                    this.RemoveItem(item);                      // Remove item from inventory
+                    return true;
+                }
+                return false;
+            }
+
+            // Left Arm Case
+            if (item.Equip.Equals(EquipmentSlot.LeftArm))
+            {
+                int neededSpace = 0;
+                if (this.equipment[(int)EquipmentSlot.LeftArm] != null)
+                {
+                    neededSpace += this.equipment[(int)EquipmentSlot.LeftArm].Girth;
+                }
+                if (this.equipment[(int)EquipmentSlot.BothArms] != null)
+                {
+                    neededSpace += this.equipment[(int)EquipmentSlot.BothArms].Girth;
+                }
+                // Do we Have room to move Items from Equipment to Inventory?
+                if (this.MaxCapacity - this.Capacity >= neededSpace)
+                {
+                    bool left = UnEquipItem(Equipment[(int)EquipmentSlot.LeftArm]);
+                    bool both = UnEquipItem(Equipment[(int)EquipmentSlot.BothArms]);
+                    this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
+                    this.RemoveItem(item);                      // Remove item from inventory
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        public bool UnEquipItem(Item item)
+        {
+            if (item == null)
+            {
+                return true;
+            }
+            
+            if (this.Equipment[(int)item.Equip].ID != item.ID)
+            {
+                return false;
+            }
+
+            if (this.AddItem(Equipment[(int)item.Equip]))
+            {
+                Equipment[(int)item.Equip] = null;
+                return true;
             }
             return false;
         }

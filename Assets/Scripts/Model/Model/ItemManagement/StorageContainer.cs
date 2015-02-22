@@ -34,13 +34,16 @@ namespace Model.ModelObjects.ItemManagement
             get { return this.maxCapacity; }
             set
             {
-                if (value >= 0)
-                {
-                    this.maxCapacity = value;
-                }
-                else
+                this.maxCapacity = value;
+                // Negative Threshold
+                if (this.maxCapacity < 0)
                 {
                     this.maxCapacity = 0;
+                }
+                // Current Threshold
+                if (this.currentCapacity > this.maxCapacity)
+                {
+                    this.currentCapacity = this.maxCapacity;
                 }
             }
         }
@@ -50,11 +53,9 @@ namespace Model.ModelObjects.ItemManagement
             get { return this.currentCapacity; }
             set
             {
-                if (value >= 0)
-                {
-                    this.currentCapacity = value;
-                }
-                else
+                this.currentCapacity = value;
+                // Negative Threshold
+                if (this.currentCapacity < 0)
                 {
                     this.currentCapacity = 0;
                 }
@@ -69,7 +70,7 @@ namespace Model.ModelObjects.ItemManagement
             }
             set
             {
-                if (null != value)
+                if (value != null)
                 {
                     this.items = value;
                 }

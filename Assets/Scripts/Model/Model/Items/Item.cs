@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Model.ItemManagement;
 
 namespace Model.ModelObjects.Items
 {
@@ -8,7 +9,7 @@ namespace Model.ModelObjects.Items
         private Guid uniqueID;
         private int inventorySpaceRequired;
         private string label;
-        private int equipCode;
+        private EquipmentSlot equipCode;
         private int damage;
         private int resistance;
         private int durability;
@@ -20,7 +21,7 @@ namespace Model.ModelObjects.Items
             this.uniqueID = Guid.NewGuid();
             this.Girth = 1;
             this.Label = "Mysterious Item";
-            this.Equip = -1;
+            this.Equip = EquipmentSlot.Unequipable;
             this.Damage = 0;
             this.Resistance = 0;
             this.Durability = 1;
@@ -28,7 +29,7 @@ namespace Model.ModelObjects.Items
         }
 
         // Specific Constructor
-        public Item(int girth, string label, int equipable)
+        public Item(int girth, string label, EquipmentSlot equipable)
         {
             this.uniqueID = Guid.NewGuid();
             this.Girth = girth;
@@ -41,7 +42,7 @@ namespace Model.ModelObjects.Items
         }
 
         // Specific Constructor
-        public Item(int girth, string label, int equipable, int dmg, int res, int dur)
+        public Item(int girth, string label, EquipmentSlot equipable, int dmg, int res, int dur)
         {
             this.uniqueID = Guid.NewGuid();
             this.Girth = girth;
@@ -77,7 +78,7 @@ namespace Model.ModelObjects.Items
             set { this.label = value; }
         }
 
-        public int Equip
+        public EquipmentSlot Equip
         {
             get { return this.equipCode; }
             set { this.equipCode = value; }
@@ -100,9 +101,16 @@ namespace Model.ModelObjects.Items
             get { return this.durability; }
             set
             {
-                if (value >= 0)
+                this.durability = value;
+                // Negative Threshold
+                if (this.durability < 0)
                 {
-                    this.durability = value;
+                    this.durability = 0;
+                }
+                // Max Threshold
+                if (this.durability > this.maxDurability)
+                {
+                    this.MaxDurability = this.durability;
                 }
             }
         }
@@ -112,9 +120,16 @@ namespace Model.ModelObjects.Items
             get { return this.maxDurability; }
             set
             {
-                if (value >= 0)
+                this.maxDurability = value;
+                // Negative Threshold
+                if (this.maxDurability < 0)
                 {
-                    this.maxDurability = value;
+                    this.maxDurability = 0;
+                }
+                // Durability Check
+                if (this.durability > this.maxDurability)
+                {
+                    this.durability = this.maxDurability;
                 }
             }
         }
