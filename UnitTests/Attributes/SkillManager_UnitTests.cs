@@ -13,25 +13,26 @@ namespace Model.ModelObjects.Attributes.Tests
         [TestMethod()]
         public void SkillManager_Test()
         {
-
+            SkillManager skillManager = new SkillManager();
+            //TODO: Meaningful test
         }
 
         [TestMethod()]
         public void AddSkill_Test()
         {
-
+            //TODO: Meaningful test
         }
 
         [TestMethod()]
         public void OutgoingDamage_Test()
         {
-
+            //TODO: Meaningful test
         }
 
         [TestMethod()]
         public void DamageResistance_Test()
         {
-
+            //TODO: Meaningful test
         }
     }
 }

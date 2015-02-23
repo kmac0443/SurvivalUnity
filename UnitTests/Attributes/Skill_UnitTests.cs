@@ -13,19 +13,27 @@ namespace Model.ModelObjects.Attributes.Tests
         [TestMethod()]
         public void Skill_Test()
         {
-
+            Skill skill = new Skill();
+            
+            //ID is read only
+            Guid id = skill.ID;
+            Assert.AreEqual(id, skill.ID);
+            skill.ID = new Guid();
+            Assert.AreEqual(id, skill.ID);
         }
 
         [TestMethod()]
         public void OutgoingDamage_Test()
         {
-
+            Skill skill = new Skill();
+            Assert.AreEqual(0, skill.OutgoingDamage());
         }
 
         [TestMethod()]
         public void DamageResistance_Test()
         {
-
+            Skill skill = new Skill();
+            Assert.AreEqual(0, skill.DamageResistance());
         }
     }
 }
