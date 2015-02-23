@@ -113,9 +113,9 @@ namespace Model.ModelObjects.ItemManagement
                 // Do we Have room to move Items from Equipment to Inventory?
                 if (this.MaxCapacity - this.Capacity >= neededSpace)
                 {
-                    bool left = UnEquipItem(Equipment[(int)EquipmentSlot.LeftArm]);
-                    bool right = UnEquipItem(Equipment[(int)EquipmentSlot.RightArm]);
-                    bool both = UnEquipItem(Equipment[(int)EquipmentSlot.BothArms]);
+                    UnEquipItem(Equipment[(int)EquipmentSlot.LeftArm]);
+                    UnEquipItem(Equipment[(int)EquipmentSlot.RightArm]);
+                    UnEquipItem(Equipment[(int)EquipmentSlot.BothArms]);
                     this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
                     this.RemoveItem(item);                      // Remove item from inventory
                     return true;
@@ -139,8 +139,8 @@ namespace Model.ModelObjects.ItemManagement
                 // Do we Have room to move Items from Equipment to Inventory?
                 if (this.MaxCapacity - this.Capacity >= neededSpace)
                 {
-                    bool right = UnEquipItem(Equipment[(int)EquipmentSlot.RightArm]);
-                    bool both = UnEquipItem(Equipment[(int)EquipmentSlot.BothArms]);
+                    UnEquipItem(Equipment[(int)EquipmentSlot.RightArm]);
+                    UnEquipItem(Equipment[(int)EquipmentSlot.BothArms]);
                     this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
                     this.RemoveItem(item);                      // Remove item from inventory
                     return true;
@@ -163,8 +163,8 @@ namespace Model.ModelObjects.ItemManagement
                 // Do we Have room to move Items from Equipment to Inventory?
                 if (this.MaxCapacity - this.Capacity >= neededSpace)
                 {
-                    bool left = UnEquipItem(Equipment[(int)EquipmentSlot.LeftArm]);
-                    bool both = UnEquipItem(Equipment[(int)EquipmentSlot.BothArms]);
+                    UnEquipItem(Equipment[(int)EquipmentSlot.LeftArm]);
+                    UnEquipItem(Equipment[(int)EquipmentSlot.BothArms]);
                     this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
                     this.RemoveItem(item);                      // Remove item from inventory
                     return true;
