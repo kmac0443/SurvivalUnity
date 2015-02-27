@@ -1,16 +1,19 @@
-﻿using Model.ModelObjects.Attributes;
+﻿using Model.MeterManagement;
+using Model.ModelObjects.Attributes;
 using System;
 using System.Collections.Generic;
 
 namespace Model.ModelObjects.Person
 {
     public class Player : Person
-    {
+    {        
         private AttributeManager attributes;
-        protected SkillManager skills;
-
+        private SkillManager skills;
+        private Vitals vitals;
+        
         public Player()
         {
+            this.vitals = new Vitals();
             this.attributes = new AttributeManager();
             this.skills = new SkillManager();
         }
@@ -35,18 +38,19 @@ namespace Model.ModelObjects.Person
             {
                 damageAfterResistance = 0;
             }
-
-            //TODO Have damage affect health.
+            this.vitals.Decrease(MeterType.Health, damageAfterResistance);
         }
 
         public override void OnUpdate()
         {
             Console.WriteLine("OnUpdate: I'm a Player");
+            this.vitals.OnUpdate();
         }
 
         public override void OnTime()
         {
             Console.WriteLine("OnTime: I'm a Player");
+            this.vitals.OnTime();
         }
 
         public override string Info()

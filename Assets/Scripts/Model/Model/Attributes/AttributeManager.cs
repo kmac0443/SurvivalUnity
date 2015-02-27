@@ -5,6 +5,14 @@ namespace Model.ModelObjects.Attributes
 {
     public class AttributeManager : IDamageAffecting
     {
+        public event ChangedEventHandler Changed;
+        protected virtual void OnChanged(EventArgs e)
+        {
+            if (Changed != null)
+            {
+                Changed(this, e);
+            }
+        }
         private int constitution;
         private int strength;
         private int intelligence;
@@ -36,6 +44,7 @@ namespace Model.ModelObjects.Attributes
                 if (value >= 0)
                 {
                     this.constitution = value;
+                    OnChanged(EventArgs.Empty);
                 }
             }
         }
@@ -48,6 +57,7 @@ namespace Model.ModelObjects.Attributes
                 if (value >= 0)
                 {
                     this.strength = value;
+                    OnChanged(EventArgs.Empty);
                 }
             }
         }
@@ -60,6 +70,7 @@ namespace Model.ModelObjects.Attributes
                 if (value >= 0)
                 {
                     this.intelligence = value;
+                    OnChanged(EventArgs.Empty);
                 }
             }
         }
@@ -72,6 +83,7 @@ namespace Model.ModelObjects.Attributes
                 if (value >= 0)
                 {
                     this.dexterity = value;
+                    OnChanged(EventArgs.Empty);
                 }
             }
         }

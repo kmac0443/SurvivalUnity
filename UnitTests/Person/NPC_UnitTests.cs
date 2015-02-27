@@ -13,55 +13,50 @@ namespace Model.ModelObjects.Person.Tests
         [TestMethod()]
         public void NPC_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void DealDamage_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void ReceiveDamage_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void OnUpdate_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void OnTime_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void Speak_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void getDialogue_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void setDialogue_Test()
         {
-
+            Assert.IsFalse(true);
         }
-
-        [TestMethod()]
-        public void Info_Test()
-        {
-
-        }
+        
     }
 }

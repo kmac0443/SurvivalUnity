@@ -13,37 +13,31 @@ namespace Model.ModelObjects.Person.Tests
         [TestMethod()]
         public void Player_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void DealDamage_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void ReceiveDamage_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void OnUpdate_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void OnTime_Test()
         {
-
-        }
-
-        [TestMethod()]
-        public void Info_Test()
-        {
-
+            Assert.IsFalse(true);
         }
     }
 }

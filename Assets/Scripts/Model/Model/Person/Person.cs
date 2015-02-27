@@ -8,6 +8,14 @@ namespace Model.ModelObjects.Person
     public class Person : IUnity
     {
         protected Inventory inventory;
+        public event ChangedEventHandler Changed;
+        protected virtual void OnChanged(EventArgs e)
+        {
+            if (Changed != null)
+            {
+                Changed(this, e);
+            }
+        }
 
         public Person()
         {
@@ -16,24 +24,32 @@ namespace Model.ModelObjects.Person
 
         public bool AddItem(Item item)
         {
-            return this.inventory.AddItem(item);
+            bool success = this.inventory.AddItem(item);
+            if (success)
+            {
+                OnChanged(EventArgs.Empty);
+            }
+            return success;
         }
 
         public bool RemoveItem(Item item)
         {
-            return this.inventory.RemoveItem(item);
+            bool success = this.inventory.RemoveItem(item);
+            if (success)
+            {
+                OnChanged(EventArgs.Empty);
+            }
+            return success;
         }
 
         public virtual int DealDamage()
         {
-            return 0;
-            /* implemented in children */
+            return 0;            
         }
 
         public virtual void ReceiveDamage(int damage)
         {
             return;
-            /* implemented in children */
         }
 
         public virtual void OnTime()

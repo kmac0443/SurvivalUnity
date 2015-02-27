@@ -13,13 +13,13 @@ namespace Model.World.Tests
         [TestMethod()]
         public void ResourceObject_Test()
         {
-
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void OnGather_Test()
         {
-
+            Assert.IsFalse(true);
         }
     }
 }

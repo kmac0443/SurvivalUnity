@@ -5,6 +5,15 @@ namespace Model.ModelObjects.Attributes
 {
     public class SkillManager : IDamageAffecting
     {
+        public event ChangedEventHandler Changed;
+        protected virtual void OnChanged(EventArgs e)
+        {
+            if (Changed != null)
+            {
+                Changed(this, e);
+            }
+        }
+        
         private List<Skill> skills;
 
         public SkillManager()
@@ -23,6 +32,7 @@ namespace Model.ModelObjects.Attributes
                 }
             }
             skills.Add(skill);
+            OnChanged(EventArgs.Empty);
         }
 
         public int OutgoingDamage()

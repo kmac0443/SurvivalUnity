@@ -35,12 +35,14 @@ namespace Model.ModelObjects.Person.Tests
         public void DealDamage_Test()
         {
             //TODO: Meaningful Test
+            Assert.IsFalse(true);
         }
 
         [TestMethod()]
         public void ReceiveDamage_Test()
         {
             //TODO: Meaningful Test
+            Assert.IsFalse(true);
         }
 
     }

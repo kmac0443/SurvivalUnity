@@ -7,11 +7,13 @@ namespace Model.ModelObjects.Person
     {
         private List<string> dialogue;
         private Random rand;
+        private int health;
 
         public NPC()
         {
             this.dialogue = new List<string>();
             this.rand = new Random();
+            this.health = 10;
         }
 
         public override int DealDamage()
@@ -30,8 +32,12 @@ namespace Model.ModelObjects.Person
             {
                 damageAfterResistance = 0;
             }
-
-            //TODO hurt health...
+            this.health -= damageAfterResistance;
+            if (this.health < 0)
+            {
+                this.health = 0;
+            }
+            OnChanged(EventArgs.Empty);
         }
 
         public override void OnUpdate()
@@ -62,6 +68,7 @@ namespace Model.ModelObjects.Person
         public void setDialogue(List<string> phrases)
         {
             this.dialogue = phrases;
+            OnChanged(EventArgs.Empty);
         }
 
         public override string Info()

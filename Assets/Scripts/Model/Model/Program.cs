@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.ModelObjects.Items;
+using Model.ModelObjects.Person;
+using System;
 
 namespace Model
 {
@@ -6,7 +8,14 @@ namespace Model
     {
         static void Main(string[] args)
         {
-            Console.Write("crap");
+            Player player = new Player();
+            Controller controller = new Controller();
+            controller.setPerson(player);
+            player.AddItem(new Item());
+
+            Console.WriteLine("Done");
+            string catchPhrase = Console.ReadLine();
+
         }
     }
 }

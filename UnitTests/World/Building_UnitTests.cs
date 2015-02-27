@@ -13,7 +13,7 @@ namespace Model.Building.Tests
         [TestMethod()]
         public void Building_Test()
         {
-
+            Assert.IsFalse(true);
         }
     }
 }

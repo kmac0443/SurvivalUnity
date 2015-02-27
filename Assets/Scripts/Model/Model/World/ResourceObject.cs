@@ -70,7 +70,7 @@ namespace Model.World
 
             Item i = Resources.Items[0];
             Resources.RemoveItem(i);
-            if (Resources.Capacity == 0)
+            if (Resources.Capacity <= 0)
             {
                 Active = false;
             }
