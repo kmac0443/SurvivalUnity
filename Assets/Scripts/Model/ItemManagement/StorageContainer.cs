@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class StorageContainer : MonoBehaviour
+public class StorageContainer : Component
 {
     public delegate void StorageContainerDelegate();
     public static event StorageContainerDelegate StorageContainerChangedSoTellViewControllerEvent;
@@ -88,6 +88,7 @@ public class StorageContainer : MonoBehaviour
 
     public bool AddItem(Item item)
     {
+        Changed();
         if (null == item)
         {
             return false;

@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Item : MonoBehaviour, IDamageAffecting
+public class Item : Component, IDamageAffecting
 {
     private Guid uniqueID;
     private int inventorySpaceRequired;

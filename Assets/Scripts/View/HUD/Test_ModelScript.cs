@@ -2,16 +2,18 @@
 using System.Collections;
 
 public class Test_ModelScript : MonoBehaviour
-{      
+{
+    Inventory inv;
+
     void Start()
     {
+         inv = new Inventory();
     }
 
     void OnMouseDown()
     {
         print("Adding item to inventory");
-        //TO DO add an item to the inventory     
-
+        inv.AddItem(new Item());
     }
 
 }

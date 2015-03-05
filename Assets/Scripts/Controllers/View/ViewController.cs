@@ -39,6 +39,7 @@ public class ViewController : MonoBehaviour
 
     void InventoryChanged()
     {
+        Console.WriteLine("Inventory Changed");
         //Since part of the model changed
         if (ModelChangedSoUpdateUIEvent != null)
         {
