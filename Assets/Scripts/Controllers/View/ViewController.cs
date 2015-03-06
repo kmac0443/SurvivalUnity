@@ -24,12 +24,23 @@ public class ViewController : MonoBehaviour
     {
         // The controller in turn Listened for an Event from the model
         Inventory.StorageContainerChangedSoTellViewControllerEvent += InventoryChanged;
+		//NPC.NPCChangedSoTellViewControllerEvent += NPCChanged;
+		//Player.getVitals().VitalsChangedSoTellViewControllerEvent += VitalsChanged;
+		//ResourceObject.ResourceObjectsChangedSoTellViewControllerEvent += ResourceObjectChanged;
+		//Building.BuildingObjectChangedSoTellViewControllerEvent += BuildingChanged;
+		//Skill.SkillsChangedSoTellViewControllerEvent += SkillsChanged;
+		//
     }
 
     void OnDisable()
     {
         // The controller in turn Listened for an Event from the model
         Inventory.StorageContainerChangedSoTellViewControllerEvent -= InventoryChanged;
+		//NPC.NPCChangedSoTellViewControllerEvent -= NPCChanged;
+		//Player.getVitals().VitalsChangedSoTellViewControllerEvent -= VitalsChanged;
+		//ResourceObject.ResourceObjectsChangedSoTellViewControllerEvent -= ResourceObjectChanged;
+		//Building.BuildingObjectChangedSoTellViewControllerEvent -= BuildingChanged;
+		//Skill.SkillsChangedSoTellViewControllerEvent -= SkillsChanged;
     }
 	
 	// Update is called once per frame
@@ -46,4 +57,29 @@ public class ViewController : MonoBehaviour
             ModelChangedSoUpdateUIEvent();
         }
     }
+
+	void NPCChanged()
+	{
+
+	}
+
+	void VitalsChanged()
+	{
+
+	}
+
+	void ResourceObjectChanged()
+	{
+
+	}
+
+	void BuildingChanged()
+	{
+
+	}
+
+	void SkillsChanged()
+	{
+
+	}
 }
