@@ -24,23 +24,24 @@ public class ViewController : MonoBehaviour
     {
         // The controller in turn Listened for an Event from the model
         Inventory.StorageContainerChangedSoTellViewControllerEvent += InventoryChanged;
-		//NPC.NPCChangedSoTellViewControllerEvent += NPCChanged;
-		//Player.getVitals().VitalsChangedSoTellViewControllerEvent += VitalsChanged;
-		//ResourceObject.ResourceObjectsChangedSoTellViewControllerEvent += ResourceObjectChanged;
-		//Building.BuildingObjectChangedSoTellViewControllerEvent += BuildingChanged;
-		//Skill.SkillsChangedSoTellViewControllerEvent += SkillsChanged;
-		//
+		//NPC.NPCChangedEvent += NPCChanged;
+		//Vitals.VitalsChangedEvent += VitalsChanged;
+		//ResourceObject.ResourceObjectsChangedEvent += ResourceObjectChanged;
+		//Building.BuildingObjectChangedEvent += BuildingChanged;
+		//Skill.SkillsChangedEvent += SkillsChanged;
+		//Item.ItemChangedEvent += ItemChanged;
     }
 
     void OnDisable()
     {
         // The controller in turn Listened for an Event from the model
         Inventory.StorageContainerChangedSoTellViewControllerEvent -= InventoryChanged;
-		//NPC.NPCChangedSoTellViewControllerEvent -= NPCChanged;
-		//Player.getVitals().VitalsChangedSoTellViewControllerEvent -= VitalsChanged;
-		//ResourceObject.ResourceObjectsChangedSoTellViewControllerEvent -= ResourceObjectChanged;
-		//Building.BuildingObjectChangedSoTellViewControllerEvent -= BuildingChanged;
-		//Skill.SkillsChangedSoTellViewControllerEvent -= SkillsChanged;
+		//NPC.NPCChangedEvent -= NPCChanged;
+		//Player.getVitals().VitalsChangedEvent -= VitalsChanged;
+		//ResourceObject.ResourceObjectsChangedEvent -= ResourceObjectChanged;
+		//Building.BuildingObjectChangedEvent -= BuildingChanged;
+		//Skill.SkillsChangedEvent -= SkillsChanged;
+		//Item.ItemChangedEvent -= ItemChanged;
     }
 	
 	// Update is called once per frame
@@ -79,6 +80,11 @@ public class ViewController : MonoBehaviour
 	}
 
 	void SkillsChanged()
+	{
+
+	}
+
+	void ItemChanged()
 	{
 
 	}
