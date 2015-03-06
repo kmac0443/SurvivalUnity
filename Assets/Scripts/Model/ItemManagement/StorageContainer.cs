@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class StorageContainer : Component
 {
-    public delegate void StorageContainerDelegate();
-    public static event StorageContainerDelegate StorageContainerChangedSoTellViewControllerEvent;
+    public delegate void StorageContainerDelegate(StorageContainer sender);
+    public static event StorageContainerDelegate StorageContainerChangedEvent;
 
     private int maxCapacity;
     private int currentCapacity;
@@ -62,7 +62,7 @@ public class StorageContainer : Component
             {
                 this.currentCapacity = 0;
             }
-            Changed();
+			Changed();
         }
     }
 
@@ -81,14 +81,14 @@ public class StorageContainer : Component
             else
             {
                 this.items = new List<Item>();
-                Changed();
+				Changed();
             }
         }
     }
 
     public bool AddItem(Item item)
     {
-        Changed();
+		Changed();
         if (null == item)
         {
             return false;
@@ -103,7 +103,7 @@ public class StorageContainer : Component
         {
             this.items.Add(item);
             this.Capacity += item.Girth;
-            Changed();
+			Changed();
             return true;
         }
         return false;
@@ -122,7 +122,7 @@ public class StorageContainer : Component
             {
                 this.Capacity -= this.items[i].Girth;
                 this.items.RemoveAt(i);
-                Changed();
+				Changed();
                 return true;
             }
         }
@@ -131,9 +131,9 @@ public class StorageContainer : Component
 
     private void Changed()
     {
-        if (StorageContainerChangedSoTellViewControllerEvent != null)
+        if (StorageContainerChangedEvent != null)
         {
-            StorageContainerChangedSoTellViewControllerEvent();
+            StorageContainerChangedEvent(this);
         }
     }
 

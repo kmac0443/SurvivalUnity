@@ -23,7 +23,7 @@ public class ViewController : MonoBehaviour
     void OnEnable()
     {
         // The controller in turn Listened for an Event from the model
-        Inventory.StorageContainerChangedSoTellViewControllerEvent += InventoryChanged;
+        Inventory.StorageContainerChangedEvent += InventoryChanged;
 		//NPC.NPCChangedEvent += NPCChanged;
 		//Vitals.VitalsChangedEvent += VitalsChanged;
 		//ResourceObject.ResourceObjectsChangedEvent += ResourceObjectChanged;
@@ -35,7 +35,7 @@ public class ViewController : MonoBehaviour
     void OnDisable()
     {
         // The controller in turn Listened for an Event from the model
-        Inventory.StorageContainerChangedSoTellViewControllerEvent -= InventoryChanged;
+        Inventory.StorageContainerChangedEvent -= InventoryChanged;
 		//NPC.NPCChangedEvent -= NPCChanged;
 		//Player.getVitals().VitalsChangedEvent -= VitalsChanged;
 		//ResourceObject.ResourceObjectsChangedEvent -= ResourceObjectChanged;
@@ -49,9 +49,10 @@ public class ViewController : MonoBehaviour
 	
 	}
 
-    void InventoryChanged()
+    void InventoryChanged(StorageContainer container)
     {
-        Console.WriteLine("Inventory Changed");
+		print(container);
+        print("Inventory Changed");
         //Since part of the model changed
         if (ModelChangedSoUpdateUIEvent != null)
         {
