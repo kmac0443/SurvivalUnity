@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="128" height="128" tilewidth="64" tileheight="64" nextobjectid="10">
+ <tileset firstgid="1" name="Outdoors" tilewidth="64" tileheight="64">
+  <image source="Spritesheets/Outdoors.png" width="512" height="768"/>
+ </tileset>
+ <tileset firstgid="97" name="Houses (for reference)" tilewidth="512" tileheight="512">
+  <image source="Spritesheets/Houses.png" width="1024" height="512"/>
+ </tileset>
+ <layer name="Background" width="128" height="128">
+  <properties>
+   <property name="unity:scale" value="0.015625"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt100KgkAAhuEBO0XbCKJNm2jRJqJO0Lq6/zEaUWEKUxf9oPM88OJGQfhQNAQAAIBnRdKsjnxsYuvYMnaI7evIwyo2D9X25yTysAvV855uf/zrHfFLp1Bt3hzL7Rc91xRvusWudcWX7pfPanYv24Zq+65vwHTvS1K6vf3HI33nD/kHaHvW27L/uDTbDzmvb/t7sP+UdW2exrS9bk6+7A8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwTQ8H/BPs
+  </data>
+ </layer>
+ <layer name="Buildings (for reference only)" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztzkERAAAEADBV6R9CBQ93PLYEiwAAAAAAAJip6wAv5XUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABY07QwAMQ=
+  </data>
+ </layer>
+</map>
