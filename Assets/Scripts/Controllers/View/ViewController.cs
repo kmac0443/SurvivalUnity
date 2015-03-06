@@ -30,6 +30,8 @@ public class ViewController : MonoBehaviour
 		//Building.BuildingObjectChangedEvent += BuildingChanged;
 		//Skill.SkillsChangedEvent += SkillsChanged;
 		//Item.ItemChangedEvent += ItemChanged;
+		//Attribute.AttributeChangedEvent += AttributesChanged;
+		//Player.PlayerChangedEvent += PlayerChanged; ?????
     }
 
     void OnDisable()
@@ -42,6 +44,8 @@ public class ViewController : MonoBehaviour
 		//Building.BuildingObjectChangedEvent -= BuildingChanged;
 		//Skill.SkillsChangedEvent -= SkillsChanged;
 		//Item.ItemChangedEvent -= ItemChanged;
+		//Attribute.AttributeChangedEvent -= AttributesChanged;
+		//Player.PlayerChangedEvent -= PlayerChanged; ?????
     }
 	
 	// Update is called once per frame
@@ -60,32 +64,37 @@ public class ViewController : MonoBehaviour
         }
     }
 
-	void NPCChanged()
+	void NPCChanged(NPC changedNPC)
 	{
 
 	}
 
-	void VitalsChanged()
+	void VitalsChanged(Vitals changedVitals)
 	{
 
 	}
 
-	void ResourceObjectChanged()
+	void ResourceObjectChanged(ResourceObject changedObject)
 	{
 
 	}
 
-	void BuildingChanged()
+	void BuildingChanged(Building changedBuilding)
 	{
 
 	}
 
-	void SkillsChanged()
+	void SkillsChanged(Skill changedSkill)
 	{
 
 	}
 
-	void ItemChanged()
+	void ItemChanged(Item changedItem)
+	{
+
+	}
+
+	void PlayerChanged(Player ChangedPlayer)
 	{
 
 	}
