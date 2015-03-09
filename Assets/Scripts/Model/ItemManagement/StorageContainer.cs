@@ -88,8 +88,7 @@ public class StorageContainer
 
     public bool AddItem(Item item)
     {
-		Changed();
-        if (null == item)
+        if (item == null)
         {
             return false;
         }

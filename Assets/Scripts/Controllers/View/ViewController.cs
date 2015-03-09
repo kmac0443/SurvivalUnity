@@ -55,8 +55,6 @@ public class ViewController : MonoBehaviour
 
     void InventoryChanged(StorageContainer container)
     {
-		print(container);
-        print("Inventory Changed");
         //Since part of the model changed
         if (ModelChangedSoUpdateUIEvent != null)
         {
@@ -98,4 +96,5 @@ public class ViewController : MonoBehaviour
 	{
 
 	}
+
 }
