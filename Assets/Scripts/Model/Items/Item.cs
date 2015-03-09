@@ -3,8 +3,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Item : Component, IDamageAffecting
+public class Item : IDamageAffecting
 {
+	public enum Type
+	{
+		Item0,
+		Item1,
+		Item2,
+		Item3,
+	}
+
     private Guid uniqueID;
     private int inventorySpaceRequired;
     private string label;
@@ -13,6 +21,8 @@ public class Item : Component, IDamageAffecting
     private int resistance;
     private int durability;
     private int maxDurability;
+	private Type type;
+
 
     // Default Constructor
     public Item()
@@ -26,6 +36,19 @@ public class Item : Component, IDamageAffecting
         this.Durability = 1;
         this.MaxDurability = 1;
     }
+
+	// Specific Constructor
+	public Item(int girth, string label, Type type)
+	{
+		this.uniqueID = Guid.NewGuid();
+		this.Girth = girth;
+		this.Label = label;
+		this.Damage = 0;
+		this.Resistance = 0;
+		this.Durability = 1;
+		this.MaxDurability = 1;
+		this.ItemType = type;
+	}
 
     // Specific Constructor
     public Item(int girth, string label, EquipmentSlot equipable)
@@ -58,6 +81,13 @@ public class Item : Component, IDamageAffecting
         get { return this.uniqueID; }
         set { /*Should Not Change*/ }
     }
+
+	
+	public Type ItemType
+	{
+		private set { this.type = value; }
+		get { return this.type; }
+	}
 
     public int Girth
     {
@@ -146,20 +176,5 @@ public class Item : Component, IDamageAffecting
     public virtual void OnUse()
     {
         this.Durability--;
-    }
-    
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

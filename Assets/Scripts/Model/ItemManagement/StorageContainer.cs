@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class StorageContainer : Component
+public class StorageContainer
 {
     public delegate void StorageContainerDelegate(StorageContainer sender);
     public static event StorageContainerDelegate StorageContainerChangedEvent;
@@ -135,20 +135,5 @@ public class StorageContainer : Component
         {
             StorageContainerChangedEvent(this);
         }
-    }
-
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
