@@ -9,15 +9,19 @@ public class Test_ModelScript : MonoBehaviour
     void Start()
     {
         inv = new Inventory();
-		inv.AddItem(new Item(0, "hey", Item.Type.Item0));
-		inv.AddItem(new Item(0, "hey", Item.Type.Item1));
-		inv.AddItem(new Item(0, "hey", Item.Type.Item2));
-		inv.AddItem(new Item(0, "hey", Item.Type.Item3));
+		inv.AddItem(new Item(10, "hey", Item.Type.Item0));
+		inv.AddItem(new Item(10, "hey", Item.Type.Item1));
+		inv.AddItem(new Item(10, "hey", Item.Type.Item2));
+		inv.AddItem(new Item(10, "hey", Item.Type.Item3));
     }
 
     void OnMouseDown()
     {
-		inv.AddItem(new Item(0, "hey", Item.Type.Item0));
+		bool addedItem = inv.AddItem(new Item(10, "hey", Item.Type.Item0));
+		if (!addedItem) 
+		{
+			Debug.Log("Could not add item");
+		}
     }
 
 }
