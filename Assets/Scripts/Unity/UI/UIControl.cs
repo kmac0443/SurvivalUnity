@@ -4,10 +4,12 @@ using System.Collections;
 public class UIControl : MonoBehaviour {
 	public GameObject inventoryWindowObject;
 	private StorageWindow inventoryWindow;
+	public StorageContainer test_inv;
 	
 	// Use this for initialization
 	void Start () {
 		inventoryWindow = inventoryWindowObject.GetComponent<StorageWindow>();
+		test_inv = new StorageContainer();
 
 		if (inventoryWindow == null) {
 			Debug.LogError("InventoryWindow not found!");
@@ -16,17 +18,14 @@ public class UIControl : MonoBehaviour {
 
 	void LateUpdate() {
 		if (Input.GetKeyDown(KeyCode.I)) {
-			// TODO: remove this test code -- this should be the player's inventory
-			StorageContainer test_inv = new StorageContainer();
-			
-			for (int i = 0; i < 5; ++i) {
-				test_inv.AddItem(new Item(0, "hey", Item.Type.Item0));
-				test_inv.AddItem(new Item(0, "hey", Item.Type.Item1));
-				test_inv.AddItem(new Item(0, "hey", Item.Type.Item2));
-				test_inv.AddItem(new Item(0, "hey", Item.Type.Item3));
+			if(inventoryWindow.gameObject.activeSelf)
+			{
+				inventoryWindow.close();
 			}
-
-			inventoryWindow.displayStorageContainer(test_inv);
+			else
+			{
+				inventoryWindow.displayStorageContainer(Test_ModelScript.inv);
+			}
 		}
 	}
 }
