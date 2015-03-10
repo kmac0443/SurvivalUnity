@@ -45,8 +45,8 @@ public class NPC : Person
         {
             return "Hello World";
         }
-        int radomIndex = rand.Next(this.dialogue.Count);
-        return dialogue[radomIndex];
+        int randomIndex = rand.Next(this.dialogue.Count);
+        return dialogue[randomIndex];
     }
 
     public List<string> getDialogue()

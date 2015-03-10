@@ -79,7 +79,7 @@ public class Inventory : StorageContainer, IDamageAffecting
             // Edge case where Inventory is full but we could swap items
             else if (Equipment[(int)item.Equip].Girth == item.Girth)
             {
-                this.RemoveItem(item);                      // Remove item to be equiped from inventory
+                this.RemoveItem(item);                      // Remove item to be equipped from inventory
                 this.AddItem(Equipment[(int)item.Equip]);   // Move other item from Equipment into Inventory
                 this.Equipment[(int)item.Equip] = item;     // Put item into Equipment
                 return true;

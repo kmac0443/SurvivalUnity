@@ -15,7 +15,7 @@ public class ViewController : MonoBehaviour
         {
             ModelChangedSoUpdateUIEvent();
             //This in turn calls UI_Meters -> AdjustMeters
-            //Because they listend for the event
+            //Because they listened for the event
         }
 
 	}
