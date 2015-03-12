@@ -1,9 +1,8 @@
 fileFormatVersion: 2
-guid: 5358c1e6138bc0249a529c67aaa1cc1a
+guid: 1f9e3857cea20554aba9cf1ba1b14d8f
 MonoImporter:
   serializedVersion: 2
-  defaultReferences:
-  - inventoryWindowObject: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

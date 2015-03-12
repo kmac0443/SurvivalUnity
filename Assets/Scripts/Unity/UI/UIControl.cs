@@ -1,31 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Control the UI.
+ * Open and close things with the keyboard.
+ */
 public class UIControl : MonoBehaviour {
 	public GameObject inventoryWindowObject;
-	private StorageWindow inventoryWindow;
-	public StorageContainer test_inv;
+	public GameObject containerWindowObject;
 	
 	// Use this for initialization
 	void Start () {
-		inventoryWindow = inventoryWindowObject.GetComponent<StorageWindow>();
-		test_inv = new StorageContainer();
-
-		if (inventoryWindow == null) {
-			Debug.LogError("InventoryWindow not found!");
-		}
+		UI.initialize(
+			inventoryWindowObject.GetComponent<StorageWindow>(),
+			containerWindowObject.GetComponent<StorageWindow>()
+		);
 	}
 
 	void LateUpdate() {
 		if (Input.GetKeyDown(KeyCode.I)) {
-			if(inventoryWindow.gameObject.activeSelf)
-			{
-				inventoryWindow.close();
-			}
-			else
-			{
-				inventoryWindow.displayStorageContainer(Test_ModelScript.inv);
-			}
+			UI.Get.Inventory.toggleShowing(Test_ModelScript.inv);
+			UI.Get.refreshAll();
+		}
+		else if (Input.GetKeyDown(KeyCode.Escape)) {
+			UI.Get.closeAll();
 		}
 	}
 }

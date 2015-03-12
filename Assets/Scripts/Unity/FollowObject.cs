@@ -12,7 +12,7 @@ public class FollowObject : MonoBehaviour {
 	private Transform obj;
 
 	/* The tag of the object to follow */
-	public string objectName = "Player";
+	public GameObject target;
 
 	/* How far back the tracking object (camera) sits from the scene */
 	public Vector3 offset = new Vector3(0, 0, -1);
@@ -21,7 +21,7 @@ public class FollowObject : MonoBehaviour {
 	public float radius = 1.0f;
 
 	void Awake() {
-		obj = GameObject.Find(objectName).transform;
+		obj = target.transform;
 	}
 	
 	void Update() {

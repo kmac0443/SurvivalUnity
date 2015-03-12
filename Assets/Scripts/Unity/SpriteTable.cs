@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 
+/*
+ * Pass in an enum, get the sprite for it.
+ */
 public class SpriteTable {
 	private static Dictionary<string, SpriteTable> instances = new Dictionary<string, SpriteTable>();
 
@@ -19,26 +22,33 @@ public class SpriteTable {
 		}
 	}
 
-	public Sprite getSprite(Item.Type i) {
-		return (Sprite)sprites[(int)i];
+	private Sprite getSprite(int i) {
+		return (Sprite)sprites[i];
 	}
 
 	/*
-	 * Load the spritesheet relative to Assets/Sprites.
-	 * For example, the "Items" spritesheet is at Items/Items.png
+	 * Load a spritesheet relative to Assets/Sprites.
 	 */
-	public static SpriteTable Get(string asset) {
+	private static SpriteTable getSpriteTable(string asset) {
 		try {
 			if (!instances.ContainsKey(asset)) {
 				Debug.Log("Loading assets at " + asset);
 				instances.Add(asset, new SpriteTable(ASSET_PREFIX + asset));
 			}
-
+			
 			return instances[asset];
 		}
 		catch (Exception e) {
 			Debug.LogError(e.Message);
 			return null;
 		}
+	}
+
+	/*
+	 * The "Items" spritesheet is at Items/Items.png
+	 * Can add additional overloads for other enums as/if needed.
+	 */
+	public static Sprite Get(Item.Type item) {
+		return getSpriteTable("Items/Items.png").getSprite((int)item);
 	}
 }
