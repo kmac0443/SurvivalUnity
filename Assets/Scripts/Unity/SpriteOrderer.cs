@@ -50,13 +50,13 @@ public class SpriteOrderer : MonoBehaviour {
 		SpriteOrderer orderer = sprite.GetComponent<SpriteOrderer>();
 
 		if (orderer == null) {
-			return sprite.collider2D.bounds.min.y;
+			return sprite.GetComponent<Collider2D>().bounds.min.y;
 		}
 		else switch (orderer.anchor) {
 		case Anchor.BOTTOM:
-			return orderer.ComputeRatio(sprite.collider2D.bounds.min.y, sprite.collider2D.bounds.max.y);
+			return orderer.ComputeRatio(sprite.GetComponent<Collider2D>().bounds.min.y, sprite.GetComponent<Collider2D>().bounds.max.y);
 		case Anchor.CENTER:
-			return orderer.ComputeRatio(sprite.collider2D.transform.position.y, sprite.collider2D.bounds.min.y);
+			return orderer.ComputeRatio(sprite.GetComponent<Collider2D>().transform.position.y, sprite.GetComponent<Collider2D>().bounds.min.y);
 		default:
 			throw new System.ArgumentOutOfRangeException("Unknown sprite ordering Anchor.");
 		}

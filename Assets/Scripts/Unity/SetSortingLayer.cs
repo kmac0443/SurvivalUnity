@@ -10,7 +10,7 @@ public class SetSortingLayer : MonoBehaviour {
 
 	// set on initialization
 	void Start() {
-		renderer.sortingLayerName = sortingLayer;
-		renderer.sortingOrder = sortingOrder;
+		GetComponent<Renderer>().sortingLayerName = sortingLayer;
+		GetComponent<Renderer>().sortingOrder = sortingOrder;
 	}
 }

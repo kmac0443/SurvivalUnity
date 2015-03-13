@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: db2f8e4c00158554893546b68342a884
+timeCreated: 1426204495
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Building_Interior_0
+    21300002: Building_Interior_1
+    21300004: Building_Interior_2
+    21300006: Building_Interior_3
+    21300008: Building_Interior_4
+    21300010: Building_Interior_5
+    21300012: Building_Interior_6
+    21300014: Building_Interior_7
+    21300016: Building_Interior_8
+    21300018: Building_Interior_0
+    21300020: Building_Interior_1
+    21300022: Building_Interior_2
+    21300024: Building_Interior_3
+    21300026: Building_Interior_8
+    21300028: Building_Interior_4
+    21300030: Building_Interior_5
+    21300032: Building_Interior_6
+    21300034: Building_Interior_7
+    21300036: Building_Interior_9
+    21300038: Building_Interior_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Building_Interior_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 428
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 428
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 428
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_3
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 360
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 360
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 360
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 292
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_6
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 292
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_7
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 292
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_9
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 428
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_10
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 428
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
