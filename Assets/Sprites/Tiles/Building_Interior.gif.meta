@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: db2f8e4c00158554893546b68342a884
-timeCreated: 1426289296
+timeCreated: 1426292701
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -28,6 +28,10 @@ TextureImporter:
     21300042: Building_Interior_12
     21300044: Building_Interior_13
     21300046: Building_Interior_14
+    21300048: Building_Interior_15
+    21300050: Building_Interior_16
+    21300052: Building_Interior_17
+    21300054: Building_Interior_18
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -222,6 +226,46 @@ TextureImporter:
         height: 128
       alignment: 9
       pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_15
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 224
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_16
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 224
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_17
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 157
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Building_Interior_18
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 157
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
