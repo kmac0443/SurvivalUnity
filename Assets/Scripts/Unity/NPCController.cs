@@ -65,7 +65,7 @@ public class NPCController : MonoBehaviour {
 					Debug.Log ("Whoops. We got a number of: " + move);
 					break;
 			}
-			int talk = Random.Range (0,10);
+			int talk = Random.Range (0,2);
 			switch(talk)
 			{
 				case 1:

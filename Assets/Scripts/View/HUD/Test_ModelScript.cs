@@ -10,10 +10,10 @@ public class Test_ModelScript : MonoBehaviour
     {
         inv = new Inventory();
 		for (int i = 0; i < 5; ++i) {
-			inv.AddItem(new Item(1, "hey", Item.Type.Item0));
-			inv.AddItem(new Item(0, "hey", Item.Type.Item1));
-			inv.AddItem(new Item(0, "hey", Item.Type.Item2));
-			inv.AddItem(new Item(0, "hey", Item.Type.Item3));
+			inv.AddItem(new Item(1, "Your trusty spellbook", Item.Type.Item0));
+			inv.AddItem(new Item(3, "A scroll with your family history on it", Item.Type.Item1));
+			inv.AddItem(new Item(2, "The Centaur's Axe", Item.Type.Item2));
+			inv.AddItem(new Item(1, "Some creepy sword", Item.Type.Item3));
 		}
     }
 

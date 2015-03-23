@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
@@ -8,35 +9,73 @@ using System.Collections.Generic;
  */
 public class StorageWindow : MonoBehaviour, IDropHandler {
 	public GameObject itemPrefab;
-	public int rows = 5;
-	public int cols = 4;
-
-	private float item_width;
-	private float item_height;
-	private RectTransform rectTransform;
-
+	public GameObject slotPrefab;
+	public string name;
+	public Vector2 cellSize = new Vector2(48, 48);
+	
 	private StorageContainer currentContainer = null;
-	private List<GameObject> items = new List<GameObject>();
+	private List<StorageItem> items = new List<StorageItem>();
+	private List<GameObject> slots = new List<GameObject>();
 
+	private GameObject grid;
+	private GameObject title;
 
 	private void initialize() {
 		gameObject.SetActive(true);
-		items = new List<GameObject>();
+		items = new List<StorageItem>();
 
-		rectTransform = GetComponent<RectTransform>();
-		item_width = rectTransform.rect.width / (cols + 1) * rectTransform.localScale.x;
-		item_height = rectTransform.rect.height / (rows + 1) * rectTransform.localScale.y;
+		if (grid != null) {
+			Destroy(grid);
+			Destroy(title);
+		}
+
+		// create the title
+		title = new GameObject("Storage Window Title", new System.Type[] {typeof(Text)});
+		title.transform.SetParent(this.transform);
+
+		title.GetComponent<Text>().text = name;
+		title.GetComponent<Text>().font = UI.Get.DefaultFont;
+		title.GetComponent<Text>().fontSize = 16;
+		title.GetComponent<Text>().color = Color.black;
+		title.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+		title.GetComponent<Text>().supportRichText = true;
+
+		// create the grid of itmes
+		grid = new GameObject("Storage Window Grid", new System.Type[]{typeof(GridLayoutGroup)});
+		grid.transform.SetParent(this.transform);
+
+		grid.GetComponent<GridLayoutGroup>().cellSize = cellSize;
 	}
 
-	private GameObject spawn(Item item) {
-		GameObject obj = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-		obj.GetComponent<StorageItem>().setItem(this, item);
-		obj.transform.SetParent(this.transform);
+	private StorageItem spawn(Item item) {
+		StorageItem obj = (Instantiate(itemPrefab, Vector3.zero, Quaternion.identity) as GameObject).GetComponent<StorageItem>();
+		obj.setItem(this, item);
+
 		return obj;
 	}
 
-	public Vector3 position(int x, int y) {
-		return new Vector3(x * item_width + item_width, rectTransform.rect.height - (y * item_height) - item_height);
+	private void addItem(Item item) {
+		StorageItem obj = spawn(item);
+		items.Add(obj);
+		items.AddRange(obj.Girth);
+	}
+
+	private void addSlots() {
+		slots.Clear();
+
+		for (int n = 0; n < currentContainer.MaxCapacity; ++n) {
+			GameObject slot = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+			slot.transform.SetParent(grid.transform);
+			slots.Add(slot);
+		}
+	}
+
+	private void placeInSlots() {
+		addSlots();
+
+		for (int i = 0; i < items.Count; ++i) {
+			items[i].gameObject.transform.SetParent(slots[i].transform);
+		}
 	}
 
 	/*
@@ -45,25 +84,25 @@ public class StorageWindow : MonoBehaviour, IDropHandler {
 	private void displayStorageContainer() {
 		initialize();
 
-		int i = 0;
-		int j = 0;
 		foreach (Item item in currentContainer.Items) {
-			items.Add(spawn(item/*, position(i, j)*/));
-
-			i += 1;
-			if (i == cols) {
-				i = 0;
-				j += 1;
-			}
+			addItem(item);
 		}
+
+		placeInSlots();
 	}
 
 	private void clear() {
-		foreach (GameObject item in items) {
-			Destroy(item);
+		foreach (StorageItem item in items) {
+			Destroy(item.gameObject);
 		}
 
 		items.Clear();
+
+		foreach (GameObject obj in slots) {
+			Destroy(obj);
+		}
+		
+		slots.Clear();
 	}
 
 	/*
@@ -121,18 +160,27 @@ public class StorageWindow : MonoBehaviour, IDropHandler {
 	}
 
 	public void OnDrop(PointerEventData eventData) {
-		if (UI.Get.HeldItem == null) return;
+		if (!UI.Get.holdingItem()) return;
 
 		if (this != UI.Get.HeldItem.Parent) {
 			if (currentContainer.AddItem(UI.Get.HeldItem.Item)) {
 				UI.Get.HeldItem.Parent.currentContainer.RemoveItem(UI.Get.HeldItem.Item);
-				UI.Get.HeldItem.Parent = this;
 			}
 			else {
 				Debug.Log("Cannot add item to inventory.");
 			}
 		}
 
-		UI.Get.HeldItem = null;
+		UI.Get.refreshAll();
+	}
+
+	void OnDestroy() {
+		if (grid != null) {
+			Destroy(grid);
+			Destroy(title);
+		}
+
+		grid = null;
+		title = null;
 	}
 }

@@ -8,7 +8,7 @@ using System.Collections;
 public class UIControl : MonoBehaviour {
 	public GameObject inventoryWindowObject;
 	public GameObject containerWindowObject;
-	
+
 	// Use this for initialization
 	void Start () {
 		UI.initialize(

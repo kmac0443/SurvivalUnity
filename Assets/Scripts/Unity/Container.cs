@@ -13,8 +13,9 @@ public class Container : Interactable {
 		container.AddItem(new Item(1, "TEST", Item.Type.Item0));
 		container.AddItem(new Item(1, "TEST", Item.Type.Item1));
 		container.AddItem(new Item(1, "TEST", Item.Type.Item2));
-		container.AddItem(new Item(1, "TEST", Item.Type.Item3));
-		container.AddItem(new Item(1, "TEST", Item.Type.Item0));
+		container.AddItem(new Item(2, "TEST", Item.Type.Item3));
+		container.AddItem(new Item(2, "TEST", Item.Type.Item0));
+		container.MaxCapacity = 10;
 	}
 
 	public override void interact(GameObject actor)	{

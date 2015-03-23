@@ -10,11 +10,30 @@ public class UI {
 	private UI(StorageWindow inventory, StorageWindow container) {
 		inventoryWindow = inventory;
 		storageWindow = container;
+
+		// this canvas renders on top of any other canvases
+		foregroundCanvas = new GameObject("Foreground Canvas", new System.Type[]{typeof(Canvas)});
+		foregroundCanvas.GetComponent<Canvas>().sortingOrder = int.MaxValue;
+		foregroundCanvas.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+
+		// add a tooltip object to the foreground canvas
+		GameObject tooltipObject = new GameObject("Tooltip");
+		tooltip = tooltipObject.AddComponent<Tooltip>();
+
+		tooltipObject.transform.SetParent(foregroundCanvas.transform);
+
+		// set up the default font
+		defaultFont = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
 	}
 	
 	private StorageWindow inventoryWindow;
 	private StorageWindow storageWindow;
+	private Tooltip tooltip;
+
 	private StorageItem currentItem = null;
+	private GameObject foregroundCanvas;
+
+	private Font defaultFont;
 
 	public static void initialize(StorageWindow inventory, StorageWindow container) {
 		instance = new UI(inventory, container);
@@ -28,9 +47,32 @@ public class UI {
 		}
 	}
 
+	/*
+	 * Display a tooltip unless an item is being held.
+	 */
+	public void displayTooltip(string msg) {
+		if (!holdingItem()) {
+			tooltip.display(msg);
+		}
+	}
+
+	public void displayTooltip(GameObject obj) {
+		if (obj.GetComponent<TooltipMessage>() != null) {
+			displayTooltip(obj.GetComponent<TooltipMessage>().message());
+		}
+		else {
+			displayTooltip(obj.ToString());
+		}
+	}
+
+	public void closeTooltip() {
+		tooltip.close();
+	}
+
 	public void closeAll() {
 		inventoryWindow.close();
 		storageWindow.close();
+		closeTooltip();
 	}
 
 	public void refreshAll() {
@@ -46,8 +88,26 @@ public class UI {
 		get { return storageWindow; }
 	}
 
+	public void holdItem(StorageItem item) {
+		currentItem = item;
+		item.transform.SetParent(foregroundCanvas.transform);
+	}
+
+	public void releaseItem() {
+		if (currentItem == null) Debug.LogError("Tried to release a held item, but none was being held!");
+
+		currentItem = null;
+	}
+
+	public bool holdingItem() {
+		return currentItem != null;
+	}
+
 	public StorageItem HeldItem {
 		get { return currentItem; }
-		set { currentItem = value; }
+	}
+
+	public Font DefaultFont {
+		get { return defaultFont; }
 	}
 }
