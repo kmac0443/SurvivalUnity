@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 467602}
   - 212: {fileID: 21233342}
-  - 61: {fileID: 6163324}
+  - 61: {fileID: 6149310}
   m_Layer: 0
   m_Name: Table1
   m_TagString: Untagged
@@ -24,12 +24,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.6324368, y: -5.84157181, z: 0}
+  m_LocalPosition: {x: 11.9213457, y: -6.09597635, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6163324
+--- !u!61 &6149310
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -66,7 +66,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300042, guid: db2f8e4c00158554893546b68342a884, type: 3}
+  m_Sprite: {fileID: 21300056, guid: d3522e4bc7e602c4cb00ce483a83365e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

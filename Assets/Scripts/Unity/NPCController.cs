@@ -10,7 +10,6 @@ public class NPCController : MonoBehaviour {
 	private Rect dialogueRect;
 	private Transform player;
 	public Vector3 offset;	
-
 	public GUIStyle dialogueStyle;
 
 

@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427338}
   - 212: {fileID: 21219200}
-  - 61: {fileID: 6186502}
+  - 61: {fileID: 6126292}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
@@ -24,12 +24,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.1792154, y: -5.35028458, z: 0}
+  m_LocalPosition: {x: 16.134903, y: -5.3787756, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6186502
+--- !u!61 &6126292
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -66,7 +66,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300046, guid: db2f8e4c00158554893546b68342a884, type: 3}
+  m_Sprite: {fileID: 21300094, guid: d3522e4bc7e602c4cb00ce483a83365e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

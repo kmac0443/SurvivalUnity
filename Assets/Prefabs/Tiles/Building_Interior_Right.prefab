@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 415192}
   - 212: {fileID: 21275532}
-  - 61: {fileID: 6137644}
   m_Layer: 0
   m_Name: Building_Interior_Right
   m_TagString: Untagged
@@ -24,24 +23,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -1, z: 0}
+  m_LocalPosition: {x: 13.7741156, y: -6.03620958, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6137644
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184634}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
 --- !u!212 &21275532
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -66,7 +52,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300008, guid: db2f8e4c00158554893546b68342a884, type: 3}
+  m_Sprite: {fileID: 21300062, guid: d3522e4bc7e602c4cb00ce483a83365e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
