@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
-  textFile: {fileID: 0}
+  textFile: {fileID: 4900000, guid: 40a094112b907234ab6ab8a772a492ce, type: 3}
 --- !u!95 &97265062
 Animator:
   serializedVersion: 3
@@ -3351,7 +3351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
-  textFile: {fileID: 0}
+  textFile: {fileID: 4900000, guid: 40a094112b907234ab6ab8a772a492ce, type: 3}
 --- !u!222 &1386683753
 CanvasRenderer:
   m_ObjectHideFlags: 0
