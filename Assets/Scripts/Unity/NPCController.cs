@@ -8,6 +8,8 @@ public class NPCController : Interactable {
 	public Vector3 offset;	
 	string[] dialogLines;
 	public TextAsset textFile;
+
+	Tooltip speechBubble = null;
 	
 	// Use this for initialization
 	void Start () {
@@ -16,6 +18,11 @@ public class NPCController : Interactable {
 		if (textFile != null) {
 			dialogLines = (textFile.text.Split('\n'));
 		}
+		else {
+			dialogLines = new string[]{"Hello!", "How's it going?", "I can't talk right now. I've got some... something to do instead of talk to you."};
+		}
+
+		speechBubble = UI.Get.makeSpeechBubble();
 	}
 
 	private IEnumerator RandomMovement()
@@ -53,7 +60,8 @@ public class NPCController : Interactable {
 
 	void onTalk(string text)
 	{
-		UI.Get.makeSpeechBubble(this.gameObject, text).fadeOutAndDestroy(3);
+		speechBubble.displayBubble(this.gameObject, text);
+		speechBubble.fadeOutAndClose(3);
 	}
 
 	void flipSprite() 
@@ -65,7 +73,11 @@ public class NPCController : Interactable {
 	}
 
 	public override void interact(GameObject actor)	{
-		int talk = Random.Range (0,dialogLines.Length);
+		int talk = Random.Range(0,dialogLines.Length);
 		onTalk(dialogLines[talk]);
+	}
+
+	void OnDestroy() {
+		Destroy(speechBubble);
 	}
 }

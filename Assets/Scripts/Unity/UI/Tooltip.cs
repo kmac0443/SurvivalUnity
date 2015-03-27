@@ -11,8 +11,10 @@ public class Tooltip : MonoBehaviour {
 
 	private GameObject text = null;
 	private GameObject background = null;
+	private Coroutine fadeRoutine = null;
 
 	private GameObject followObject = null;
+
 
 	void Start() {
 		gameObject.AddComponent<CanvasRenderer>();
@@ -126,12 +128,12 @@ public class Tooltip : MonoBehaviour {
 
 	/* Fade out the tooltip then close it (object is not destroyed) */
 	public void fadeOutAndClose(int seconds = 0) {
-		StartCoroutine(fadeAndClose(false, seconds));
+		fadeRoutine = StartCoroutine(fadeAndClose(false, seconds));
 	}
 
 	/* Fade out the tooltip then destroy it */
 	public void fadeOutAndDestroy(int seconds = 0) {
-		StartCoroutine(fadeAndClose(true, seconds));
+		fadeRoutine = StartCoroutine(fadeAndClose(true, seconds));
 	}
 
 	/* Fade out a list of objects, return false when all are faded. */
@@ -167,13 +169,18 @@ public class Tooltip : MonoBehaviour {
 	}
 
 	public void close() {
-		followObject = null;
+		if (fadeRoutine != null) {
+			StopCoroutine(fadeRoutine);
+			fadeRoutine = null;
+		}
 
 		Destroy(text);
 		text = null;
 
 		Destroy(background);
 		background = null;
+
+		// do not clear the followObject in here!
 	}
 
 	void OnDestroy() {

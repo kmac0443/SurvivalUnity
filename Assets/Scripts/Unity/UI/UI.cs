@@ -56,24 +56,11 @@ public class UI {
 		}
 	}
 
-	public Tooltip makeSpeechBubble(GameObject obj) {
-		GameObject bubbleObject = new GameObject("Speech bubble for " + obj.ToString());
+	public Tooltip makeSpeechBubble() {
+		GameObject bubbleObject = new GameObject("Speech Bubble");
 		bubbleObject.transform.SetParent(foregroundCanvas.transform);
 
-		Tooltip bubble = bubbleObject.AddComponent<Tooltip>();
-		bubble.displayBubble(obj);
-
-		return bubble;
-	}
-
-	public Tooltip makeSpeechBubble(GameObject obj, string message) {
-		GameObject bubbleObject = new GameObject("Speech bubble for " + obj.ToString());
-		bubbleObject.transform.SetParent(foregroundCanvas.transform);
-		
-		Tooltip bubble = bubbleObject.AddComponent<Tooltip>();
-		bubble.displayBubble(obj, message);
-		
-		return bubble;
+		return  bubbleObject.AddComponent<Tooltip>();;
 	}
 
 	public void closeTooltip() {

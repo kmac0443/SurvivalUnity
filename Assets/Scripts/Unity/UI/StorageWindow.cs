@@ -10,7 +10,7 @@ using System.Collections.Generic;
 public class StorageWindow : MonoBehaviour, IDropHandler {
 	public GameObject itemPrefab;
 	public GameObject slotPrefab;
-	public string name;
+	public string windowName;
 	public Vector2 cellSize = new Vector2(48, 48);
 	
 	private StorageContainer currentContainer = null;
@@ -33,7 +33,7 @@ public class StorageWindow : MonoBehaviour, IDropHandler {
 		title = new GameObject("Storage Window Title", new System.Type[] {typeof(Text)});
 		title.transform.SetParent(this.transform);
 
-		title.GetComponent<Text>().text = name;
+		title.GetComponent<Text>().text = windowName;
 		title.GetComponent<Text>().font = UI.Get.DefaultFont;
 		title.GetComponent<Text>().fontSize = 16;
 		title.GetComponent<Text>().color = Color.black;
