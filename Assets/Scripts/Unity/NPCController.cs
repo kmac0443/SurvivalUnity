@@ -5,34 +5,33 @@ public class NPCController : MonoBehaviour {
 
 	bool facingRight = true;
 	Animator animator;
-	Color color;
-	private string npcDialogue = "";
-	private Rect dialogueRect;
-	private Transform player;
+//	Color color;
+//	private string npcDialogue = "";
+//	private Rect dialogueRect;
+//	private Transform player;
 	public Vector3 offset;	
-	public GUIStyle dialogueStyle;
-
-
+//	public GUIStyle dialogueStyle;
+	
 	// Use this for initialization
 	void Start () {
-		color = Color.white;
-		color.a = 0f;
-		dialogueRect = new Rect (10, 10, 400, 50);
-		player = this.gameObject.transform;
+//		color = Color.white;
+//		color.a = 0f;
+//		dialogueRect = new Rect (10, 10, 400, 50);
+//		player = this.gameObject.transform;
 		animator = GetComponent<Animator> () as Animator;
 		StartCoroutine ("RandomMovement");
 	}
 
-	void Update()
-	{
-		dialogueRect.x = player.position.x * 64 + offset.x;
-		dialogueRect.y = player.position.y * 64 * -1 + offset.y;
-	}
+//	void Update()
+//	{
+//		dialogueRect.x = player.position.x * 64 + offset.x;
+//		dialogueRect.y = player.position.y * 64 * -1 + offset.y;
+//	}
 
-	void OnGUI (){
-		GUI.color = color;
-		GUI.Label (dialogueRect, npcDialogue, dialogueStyle);
-	}
+//	void OnGUI (){
+//		GUI.color = color;
+//		GUI.Label (dialogueRect, npcDialogue, dialogueStyle);
+//	}
 
 	private IEnumerator RandomMovement()
 	{
@@ -79,23 +78,27 @@ public class NPCController : MonoBehaviour {
 		}
 	}
 
-	private IEnumerator Fade()
-	{
-		yield return new WaitForSeconds(3);
-		while(color.a > 0)
-		{
-			color.a -= Time.deltaTime;
-			yield return new WaitForSeconds(0.001f);
-		}
-	}
+//	private IEnumerator Fade()
+//	{
+//		yield return new WaitForSeconds(3);
+//		while(color.a > 0)
+//		{
+//			color.a -= Time.deltaTime;
+//			yield return new WaitForSeconds(0.001f);
+//		}
+//		Destroy(bubble);
+//	}
 
 	void onTalk(string text)
 	{
 		Debug.Log ("Changing");
-		StopCoroutine ("Fade");
-		color.a = 1f;
-		npcDialogue = text;
-		StartCoroutine ("Fade");
+
+		UI.Get.makeSpeechBubble(this.gameObject, text).fadeOutAndDestroy(3);
+
+		//StopCoroutine ("Fade");
+		//color.a = 1f;
+		//npcDialogue = text;
+		//StartCoroutine ("Fade");
 	}
 
 	void Flip() 

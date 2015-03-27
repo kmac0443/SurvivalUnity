@@ -12,12 +12,35 @@ public class Tooltip : MonoBehaviour {
 	private GameObject text = null;
 	private GameObject background = null;
 
+	private GameObject followObject = null;
+
 	void Start() {
 		gameObject.AddComponent<CanvasRenderer>();
 		gameObject.AddComponent<RectTransform>();
 		gameObject.AddComponent<ContentSizeFitter>();
 	}
 
+	/** Get the anchor position of the tooltip. */
+	private Vector3 position() {
+		if (followObject == null) {
+			return Input.mousePosition;
+		}
+		else {
+			return Camera.main.WorldToScreenPoint(followObject.transform.position);
+		}
+	}
+
+	/** Check if the object has a TooltipMessage component. */
+	private string getMessage(GameObject obj) {
+		if (obj.GetComponent<TooltipMessage>() != null) {
+			return obj.GetComponent<TooltipMessage>().message();
+		}
+		else {
+			return obj.ToString();
+		}
+	}
+
+	/** Find where the tooltip goes on the screen. */
 	private void placeTooltip() {
 		Rect screen = new Rect(0, 0, Screen.width, Screen.height);
 		
@@ -25,11 +48,11 @@ public class Tooltip : MonoBehaviour {
 
 		Vector2 newPosition;
 
-		if (screen.Contains(Input.mousePosition + offset + new Vector3(-refPoint.x, refPoint.y))) {
-			newPosition = Input.mousePosition + offset;
+		if (screen.Contains(position() + offset + new Vector3(-refPoint.x, refPoint.y))) {
+			newPosition = position() + offset;
 		}
 		else {
-			newPosition = Input.mousePosition - offset;
+			newPosition = position() - offset;
 		}
 
 		text.transform.position = newPosition;
@@ -45,8 +68,28 @@ public class Tooltip : MonoBehaviour {
 	public bool showing() {
 		return text != null || background != null;
 	}
+	
+	public void displayBubble(GameObject obj) {
+		followObject = obj;
+		display(getMessage(obj));
+	}
 
-	public void display(string msg) {
+	public void displayBubble(GameObject obj, string msg) {
+		followObject = obj;
+		display(msg);
+	}
+	
+	public void displayTooltip(GameObject obj) {
+		followObject = null;
+		display(getMessage(obj));
+	}
+
+	public void displayTooltip(string msg) {
+		followObject = null;
+		display(msg);
+	}
+		
+	private void display(string msg) {
 		if (text != null || background != null) close();
 
 		// set up background
@@ -81,7 +124,51 @@ public class Tooltip : MonoBehaviour {
 		placeTooltip();
 	}
 
+	/* Fade out the tooltip then close it (object is not destroyed) */
+	public void fadeOutAndClose(int seconds = 0) {
+		StartCoroutine(fadeAndClose(false, seconds));
+	}
+
+	/* Fade out the tooltip then destroy it */
+	public void fadeOutAndDestroy(int seconds = 0) {
+		StartCoroutine(fadeAndClose(true, seconds));
+	}
+
+	/* Fade out a list of objects, return false when all are faded. */
+	static private bool fadeObjects(float amount, params GameObject[] objs) {
+		bool stillShowing = false;
+
+		foreach (GameObject obj in objs) {
+			Color objColor = obj.GetComponent<MaskableGraphic>().color;
+
+			if (Time.deltaTime < objColor.a) {
+				objColor.a -= Time.deltaTime;
+				stillShowing = true;
+			}
+			else {
+				objColor.a = 0.0f;
+			}
+
+			obj.GetComponent<MaskableGraphic>().color = objColor;
+		}
+
+		return stillShowing;
+	}
+
+	private IEnumerator fadeAndClose(bool destroyWhenDone, int secondsToWait = 0) {
+		if (secondsToWait > 0) yield return new WaitForSeconds(secondsToWait);
+
+		while(fadeObjects(0.1f, text, background)) {
+			yield return new WaitForSeconds(0.001f);
+		}
+
+		if (destroyWhenDone) Destroy(this.gameObject);
+		else close();
+	}
+
 	public void close() {
+		followObject = null;
+
 		Destroy(text);
 		text = null;
 

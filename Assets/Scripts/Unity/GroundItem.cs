@@ -10,7 +10,7 @@ public class GroundItem : Interactable {
 
 	public override void interact(GameObject actor) {
 		// if (Game.Player.addToInventory(new Item(itemType))) {
-		if (Test_ModelScript.inv.AddItem(new Item(0, "", itemType))) { //BAD!
+		if (Test_ModelScript.inv.AddItem(new Item(0, "", itemType))) { //TODO: This is BAD!
 			Destroy(gameObject);
 		}
 		else {

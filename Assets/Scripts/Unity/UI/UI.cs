@@ -50,19 +50,30 @@ public class UI {
 	/*
 	 * Display a tooltip unless an item is being held.
 	 */
-	public void displayTooltip(string msg) {
+	public void displayTooltip(GameObject obj) {
 		if (!holdingItem()) {
-			tooltip.display(msg);
+			tooltip.displayTooltip(obj);
 		}
 	}
 
-	public void displayTooltip(GameObject obj) {
-		if (obj.GetComponent<TooltipMessage>() != null) {
-			displayTooltip(obj.GetComponent<TooltipMessage>().message());
-		}
-		else {
-			displayTooltip(obj.ToString());
-		}
+	public Tooltip makeSpeechBubble(GameObject obj) {
+		GameObject bubbleObject = new GameObject("Speech bubble for " + obj.ToString());
+		bubbleObject.transform.SetParent(foregroundCanvas.transform);
+
+		Tooltip bubble = bubbleObject.AddComponent<Tooltip>();
+		bubble.displayBubble(obj);
+
+		return bubble;
+	}
+
+	public Tooltip makeSpeechBubble(GameObject obj, string message) {
+		GameObject bubbleObject = new GameObject("Speech bubble for " + obj.ToString());
+		bubbleObject.transform.SetParent(foregroundCanvas.transform);
+		
+		Tooltip bubble = bubbleObject.AddComponent<Tooltip>();
+		bubble.displayBubble(obj, message);
+		
+		return bubble;
 	}
 
 	public void closeTooltip() {
