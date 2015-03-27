@@ -5,33 +5,13 @@ public class NPCController : MonoBehaviour {
 
 	bool facingRight = true;
 	Animator animator;
-//	Color color;
-//	private string npcDialogue = "";
-//	private Rect dialogueRect;
-//	private Transform player;
 	public Vector3 offset;	
-//	public GUIStyle dialogueStyle;
 	
 	// Use this for initialization
 	void Start () {
-//		color = Color.white;
-//		color.a = 0f;
-//		dialogueRect = new Rect (10, 10, 400, 50);
-//		player = this.gameObject.transform;
 		animator = GetComponent<Animator> () as Animator;
 		StartCoroutine ("RandomMovement");
 	}
-
-//	void Update()
-//	{
-//		dialogueRect.x = player.position.x * 64 + offset.x;
-//		dialogueRect.y = player.position.y * 64 * -1 + offset.y;
-//	}
-
-//	void OnGUI (){
-//		GUI.color = color;
-//		GUI.Label (dialogueRect, npcDialogue, dialogueStyle);
-//	}
 
 	private IEnumerator RandomMovement()
 	{
@@ -45,13 +25,13 @@ public class NPCController : MonoBehaviour {
 					break;
 				case 1:
 					if(!facingRight) {
-						Flip ();
+						flipSprite();
 					}
 					animator.SetTrigger("Move_Left");
 					break;
 				case 2:
 					if(facingRight){
-						Flip ();
+						flipSprite();
 					}
 					animator.SetTrigger("Move_Right");
 					break;
@@ -66,42 +46,22 @@ public class NPCController : MonoBehaviour {
 			int talk = Random.Range (0,2);
 			switch(talk)
 			{
-				case 1:
+				case 0:
 					onTalk ("I used to be a blacksmith like you. Then I took a hammer to the knee...");
-					Debug.Log ("Talk one");
 					break;
-				case 2:
+				case 1:
 					onTalk ("Flies are delicious. Don't you think?");
-					Debug.Log ("Talk two");
 					break;
 			}
 		}
 	}
 
-//	private IEnumerator Fade()
-//	{
-//		yield return new WaitForSeconds(3);
-//		while(color.a > 0)
-//		{
-//			color.a -= Time.deltaTime;
-//			yield return new WaitForSeconds(0.001f);
-//		}
-//		Destroy(bubble);
-//	}
-
 	void onTalk(string text)
 	{
-		Debug.Log ("Changing");
-
 		UI.Get.makeSpeechBubble(this.gameObject, text).fadeOutAndDestroy(3);
-
-		//StopCoroutine ("Fade");
-		//color.a = 1f;
-		//npcDialogue = text;
-		//StartCoroutine ("Fade");
 	}
 
-	void Flip() 
+	void flipSprite() 
 	{
 		facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;

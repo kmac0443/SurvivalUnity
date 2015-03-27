@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d3522e4bc7e602c4cb00ce483a83365e
-timeCreated: 1427258537
+timeCreated: 1427490282
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -308,16 +308,6 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Building_Interior_21
-      rect:
-        serializedVersion: 2
-        x: 381
-        y: 496
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Building_Interior_22
       rect:
         serializedVersion: 2
@@ -368,26 +358,6 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Building_Interior_27
-      rect:
-        serializedVersion: 2
-        x: 381
-        y: 428
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Building_Interior_28
-      rect:
-        serializedVersion: 2
-        x: 447
-        y: 428
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Building_Interior_29
       rect:
         serializedVersion: 2
@@ -412,16 +382,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 176
-        y: 360
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Building_Interior_32
-      rect:
-        serializedVersion: 2
-        x: 243
         y: 360
         width: 64
         height: 64
@@ -567,26 +527,6 @@ TextureImporter:
         height: 64
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Building_Interior_33
-      rect:
-        serializedVersion: 2
-        x: 312
-        y: 298
-        width: 64
-        height: 128
-      alignment: 9
-      pivot: {x: .5, y: .75}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Building_Interior_34
-      rect:
-        serializedVersion: 2
-        x: 380
-        y: 360
-        width: 128
-        height: 64
-      alignment: 9
-      pivot: {x: .25, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
