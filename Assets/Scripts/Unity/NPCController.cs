@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NPCController : MonoBehaviour {
+public class NPCController : Interactable {
 
 	bool facingRight = true;
 	Animator animator;
@@ -43,16 +43,6 @@ public class NPCController : MonoBehaviour {
 					Debug.Log ("Whoops. We got a number of: " + move);
 					break;
 			}
-			int talk = Random.Range (0,2);
-			switch(talk)
-			{
-				case 0:
-					onTalk ("I used to be a blacksmith like you. Then I took a hammer to the knee...");
-					break;
-				case 1:
-					onTalk ("Flies are delicious. Don't you think?");
-					break;
-			}
 		}
 	}
 
@@ -67,5 +57,18 @@ public class NPCController : MonoBehaviour {
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	public override void interact(GameObject actor)	{
+		int talk = Random.Range (0,2);
+		switch(talk)
+		{
+		case 0:
+			onTalk ("I used to be a blacksmith like you. Then I took a hammer to the knee...");
+			break;
+		case 1:
+			onTalk ("Flies are delicious. Don't you think?");
+			break;
+		}
 	}
 }
