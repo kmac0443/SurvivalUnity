@@ -6,11 +6,16 @@ public class NPCController : Interactable {
 	bool facingRight = true;
 	Animator animator;
 	public Vector3 offset;	
+	string[] dialogLines;
+	public TextAsset textFile;
 	
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> () as Animator;
 		StartCoroutine ("RandomMovement");
+		if (textFile != null) {
+			dialogLines = (textFile.text.Split('\n'));
+		}
 	}
 
 	private IEnumerator RandomMovement()
@@ -60,15 +65,7 @@ public class NPCController : Interactable {
 	}
 
 	public override void interact(GameObject actor)	{
-		int talk = Random.Range (0,2);
-		switch(talk)
-		{
-		case 0:
-			onTalk ("I used to be a blacksmith like you. Then I took a hammer to the knee...");
-			break;
-		case 1:
-			onTalk ("Flies are delicious. Don't you think?");
-			break;
-		}
+		int talk = Random.Range (0,dialogLines.Length);
+		onTalk(dialogLines[talk]);
 	}
 }
