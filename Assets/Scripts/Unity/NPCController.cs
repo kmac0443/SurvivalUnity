@@ -5,7 +5,6 @@ public class NPCController : Interactable {
 
 	bool facingRight = true;
 	Animator animator;
-	public Vector3 offset;	
 	string[] dialogLines;
 	public TextAsset textFile;
 

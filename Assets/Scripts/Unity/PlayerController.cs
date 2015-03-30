@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour {
 
 	private GameObject collidingWith = null;
 	private HashSet<GameObject> sprites = new HashSet<GameObject>();
+	Tooltip speechBubble = null;
 
 	void Start() {
 		GetAllNonPlayerSprites(GameObject.Find("Sprites").transform);
+		speechBubble = UI.Get.makeSpeechBubble();
 	}
 
 	/* Get all of the children with renderers */
