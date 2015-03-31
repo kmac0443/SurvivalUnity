@@ -183,4 +183,8 @@ public class StorageWindow : MonoBehaviour, IDropHandler {
 		grid = null;
 		title = null;
 	}
+
+	public StorageContainer StorageContainer {
+		get { return currentContainer; }
+	}
 }

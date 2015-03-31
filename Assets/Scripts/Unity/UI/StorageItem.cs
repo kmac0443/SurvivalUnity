@@ -9,7 +9,7 @@ using System.Collections.Generic;
  * This is used for both the item itself and for its girth placeholders.
  * The "who" variable is always set to the main object.
  */
-public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler {
 	public Color32 placeholderColor = new Color32(100, 100, 100, 255);
 
 	private StorageItem who;
@@ -105,9 +105,17 @@ public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDr
 
 	public void OnEndDrag(PointerEventData eventData) {
 		UI.Get.releaseItem();
-		who.GetComponent<CanvasGroup>().blocksRaycasts = true;
-		showGirth();
+
+		container.StorageContainer.RemoveItem(item);
+
+		Destroy(this); // this is always the original item
 		UI.Get.refreshAll();
+	}
+
+	public void OnPointerClick(PointerEventData eventData) {
+		if (eventData.button == PointerEventData.InputButton.Right) {
+			Debug.Log("You right clicked!");
+		}
 	}
 
 	public StorageWindow Parent {
