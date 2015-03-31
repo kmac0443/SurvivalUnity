@@ -107,7 +107,8 @@ public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDr
 		UI.Get.releaseItem();
 
 		container.StorageContainer.RemoveItem (item);
-
+		//GameObject newItem = Instantiate(GroundItem, new Vector3(0, 0, 0), Quaternion.identity);
+		//newItem.GetComponent<GroundItem>.item = item;
 		Destroy (this);
 
 		UI.Get.refreshAll();

@@ -11,7 +11,7 @@ public class Inventory : StorageContainer, IDamageAffecting
     // Default Constructor
     public Inventory()
     {
-        this.MaxCapacity = 100;
+        this.MaxCapacity = 25;
         this.Capacity = 0;
         this.Items = new List<Item>();
         this.Equipment = new List<Item>();

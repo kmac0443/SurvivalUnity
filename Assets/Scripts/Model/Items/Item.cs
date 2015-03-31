@@ -7,10 +7,15 @@ public class Item : IDamageAffecting
 {
 	public enum Type
 	{
-		Item0,
-		Item1,
-		Item2,
-		Item3,
+		Canteen,
+		FishingPole,
+		Axe,
+		Dagger,
+		CraftingMaterials,
+		Pickaxe,
+		MouthFilter,
+		Shovel,
+		WaterFilter,
 	}
 
     private Guid uniqueID;

@@ -28,8 +28,7 @@ public class UIControl : MonoBehaviour {
 		}
 	}
 
-	void InventoryChanged(StorageContainer container)
-	{
+	void InventoryChanged(StorageContainer container) {
 		UI.Get.refreshAll ();
 	}
 }
