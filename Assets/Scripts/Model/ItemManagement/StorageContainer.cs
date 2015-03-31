@@ -19,7 +19,7 @@ public class StorageContainer
         this.Items = new List<Item>();
     }
 
-    private bool Contains(Guid id)
+    public bool Contains(Guid id)
     {
         for (int i = 0; i < items.Count; i++)
         {
