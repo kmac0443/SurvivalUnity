@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 71cee6270d457644f9b29ca8c8e6738b
-timeCreated: 1427491708
+timeCreated: 1427832475
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,12 @@ TextureImporter:
     21300006: Building_Interior_Transparent_Tiles_3
     21300008: Building_Interior_Transparent_Tiles_4
     21300010: Building_Interior_Transparent_Tiles_5
+    21300012: NPC_Front
+    21300014: NPC_Front_Jump
+    21300016: NPC_Side
+    21300018: NPC_Side_Jump
+    21300020: NPC_Back_Jump
+    21300022: NPC_Back
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -114,6 +120,66 @@ TextureImporter:
         height: 64
       alignment: 9
       pivot: {x: .25, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NPC_Front
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 134
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NPC_Front_Jump
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 134
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NPC_Side
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 134
+        width: 52
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NPC_Side_Jump
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 133
+        width: 64
+        height: 67
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NPC_Back_Jump
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 134
+        width: 40
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NPC_Back
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 134
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
