@@ -107,8 +107,10 @@ public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDr
 		UI.Get.releaseItem();
 
 		container.StorageContainer.RemoveItem (item);
-		//GameObject newItem = Instantiate(GroundItem, new Vector3(0, 0, 0), Quaternion.identity);
-		//newItem.GetComponent<GroundItem>.item = item;
+		GameObject newItem = new GameObject ("groundItem", new System.Type[]{typeof(GroundItem)});
+		newItem.AddComponent<SpriteRenderer>();
+		newItem.GetComponent<GroundItem>().setItem (item);
+		//TODO: Set location at player; Add trigger collider
 		Destroy (this);
 
 		UI.Get.refreshAll();
