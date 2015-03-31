@@ -115,8 +115,8 @@ public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDr
 
 	public void OnPointerClick(PointerEventData eventData) {
 		if (eventData.button == PointerEventData.InputButton.Right) {
-			if(Test_ModelScript.player.Contains(item.ID)) {
-				Test_ModelScript.player.EquipItem(item);
+			if(Test_ModelScript.inv.Contains(item.ID)) {
+				Test_ModelScript.inv.EquipItem(item);
 				Debug.Log("Equipped Item");
 			}
 		}

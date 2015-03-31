@@ -5,16 +5,16 @@ public class UI_Meters : MonoBehaviour {
 
     void OnEnable()
     {
-        ViewController.ModelChangedSoUpdateUIEvent += AdjustMeters;
+		Inventory.StorageContainerChangedEvent += AdjustMeters;
     }
 
     void OnDisable()
     {
-        ViewController.ModelChangedSoUpdateUIEvent -= AdjustMeters;
+		Inventory.StorageContainerChangedEvent -= AdjustMeters;
     }
 
-    void AdjustMeters()
-    {
+	void AdjustMeters(StorageContainer container)
+	{
         Color color = new Color(Random.value, Random.value, Random.value);
         GetComponent<Renderer>().material.color = color;
         print("ColorChanged");

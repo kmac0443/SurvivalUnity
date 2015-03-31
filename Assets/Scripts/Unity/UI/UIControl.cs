@@ -11,6 +11,7 @@ public class UIControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Inventory.StorageContainerChangedEvent += InventoryChanged;
 		UI.initialize(
 			inventoryWindowObject.GetComponent<StorageWindow>(),
 			containerWindowObject.GetComponent<StorageWindow>()
@@ -25,5 +26,10 @@ public class UIControl : MonoBehaviour {
 		else if (Input.GetKeyDown(KeyCode.Escape)) {
 			UI.Get.closeAll();
 		}
+	}
+
+	void InventoryChanged(StorageContainer container)
+	{
+		UI.Get.refreshAll ();
 	}
 }
