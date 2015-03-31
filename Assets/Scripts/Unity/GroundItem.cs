@@ -9,8 +9,7 @@ public class GroundItem : Interactable {
 	public Item item;
 
 	public override void interact(GameObject actor) {
-		// if (Game.Player.addToInventory(new Item(itemType))) {
-		if (Test_ModelScript.inv.AddItem(item)) { //TODO: This is BAD!
+		if (Test_ModelScript.inv.AddItem(item)) {
 			Destroy(gameObject);
 		}
 		else {
@@ -19,6 +18,9 @@ public class GroundItem : Interactable {
 	}
 
 	void Start() {
+		if (item == null) {
+			item = new Item(2, "Some logs", Item.Type.CraftingMaterials);
+		}
 		GetComponent<SpriteRenderer>().sprite = SpriteTable.Get(item.ItemType);
 	}
 }
