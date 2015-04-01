@@ -71,9 +71,11 @@ public class NPCController : Interactable {
 		transform.localScale = theScale;
 	}
 
-	public override void interact(GameObject actor)	{
+	public override bool interact(GameObject actor)	{
 		int talk = Random.Range(0,dialogLines.Length);
 		onTalk(dialogLines[talk]);
+
+		return true; // NPC is still there
 	}
 
 	void OnDestroy() {

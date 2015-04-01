@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SkillManager : MonoBehaviour, IDamageAffecting
+public class SkillManager : IDamageAffecting
 {
     private List<Skill> skills;
 
@@ -35,18 +35,4 @@ public class SkillManager : MonoBehaviour, IDamageAffecting
         //TODO
         return 0;
     }
-
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-    // Use this for initialization
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
 }

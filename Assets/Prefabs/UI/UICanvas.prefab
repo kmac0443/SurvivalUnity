@@ -134,8 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 186996, guid: 4bb626c239e910340a13713470a469dd, type: 2}
   slotPrefab: {fileID: 168276, guid: cc4dd303cd186114a90feab7b19e5a76, type: 2}
-  name: Container
-  cellSize: {x: 48, y: 48}
+  windowName: Container
+  cellSize: {x: 64, y: 64}
 --- !u!114 &11452758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,7 +205,7 @@ MonoBehaviour:
     m_Right: 15
     m_Top: 15
     m_Bottom: 15
-  m_ChildAlignment: 0
+  m_ChildAlignment: 1
   m_Spacing: 15
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
@@ -222,8 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 186996, guid: 4bb626c239e910340a13713470a469dd, type: 2}
   slotPrefab: {fileID: 168276, guid: cc4dd303cd186114a90feab7b19e5a76, type: 2}
-  name: Inventory
-  cellSize: {x: 48, y: 48}
+  windowName: Inventory
+  cellSize: {x: 64, y: 64}
 --- !u!114 &11494584
 MonoBehaviour:
   m_ObjectHideFlags: 1

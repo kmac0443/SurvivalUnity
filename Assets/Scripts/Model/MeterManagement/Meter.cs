@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Meter : MonoBehaviour
+public class Meter
 {
     private int min;
     private int max;
@@ -72,20 +72,5 @@ public class Meter : MonoBehaviour
     public void Decrease(int amount)
     {
         this.Current -= Math.Abs(amount);
-    }
-
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

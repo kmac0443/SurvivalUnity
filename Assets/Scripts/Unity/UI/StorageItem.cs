@@ -9,7 +9,7 @@ using System.Collections.Generic;
  * This is used for both the item itself and for its girth placeholders.
  * The "who" variable is always set to the main object.
  */
-public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler{
+public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler, IDropHandler {
 	public Color32 placeholderColor = new Color32(100, 100, 100, 255);
 
 	private StorageItem who;
@@ -103,14 +103,29 @@ public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDr
 		who.image.rectTransform.position = eventData.position;
 	}
 
+	/*
+	 * When one something is dropped on a storage item, do nothing.
+	 * This prevents an item from being dropped on the ground when dropped on another item.
+	 */
+	public void OnDrop(PointerEventData eventData) {
+		UI.Get.refreshAll();
+	}
+
 	public void OnEndDrag(PointerEventData eventData) {
 		UI.Get.releaseItem();
 
-		container.StorageContainer.RemoveItem (item);
-		GameObject newItem = new GameObject ("groundItem", new System.Type[]{typeof(GroundItem)});
-		newItem.AddComponent<SpriteRenderer>();
-		newItem.GetComponent<GroundItem>().setItem (item);
-		//TODO: Set location at player; Add trigger collider
+		container.StorageContainer.RemoveItem(item);
+
+		// drop the item around the player:
+		Vector3 offset = Random.onUnitSphere;
+		offset.z = 0;
+		GroundItem.create(item, Game.Get.PlayerController.transform.position + offset);
+
+		// Or, drop the item where the mouse is:
+		//Vector3 position = Camera.main.ScreenToWorldPoint(who.transform.position);
+		//position.z = 0;
+		//GroundItem.create(item, position);
+
 		Destroy (this);
 
 		UI.Get.refreshAll();
@@ -118,8 +133,8 @@ public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDr
 
 	public void OnPointerClick(PointerEventData eventData) {
 		if (eventData.button == PointerEventData.InputButton.Right) {
-			if(Test_ModelScript.inv.Contains(item.ID)) {
-				Test_ModelScript.inv.EquipItem(item);
+			if(Game.Get.Player.Inventory.Contains(item.ID)) {
+				Game.Get.Player.Inventory.EquipItem(item);
 				Debug.Log("Equipped Item");
 			}
 		}

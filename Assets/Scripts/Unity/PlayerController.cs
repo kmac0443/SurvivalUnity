@@ -7,15 +7,21 @@ using System.Collections.Generic;
  * Handles interaction between the player and environment.
  */
 public class PlayerController : MonoBehaviour {
-	public float speed = 1.0f;
+	public float speed = 2.0f;
 
-	private GameObject collidingWith = null;
+	private LinkedList<GameObject> collidingWith = new LinkedList<GameObject>();
 	private HashSet<GameObject> sprites = new HashSet<GameObject>();
 	Tooltip speechBubble = null;
 
 	void Start() {
-		GetAllNonPlayerSprites(GameObject.Find("Sprites").transform);
+		GameObject spritesRoot = GameObject.Find("Sprites");
+		if (spritesRoot != null) GetAllNonPlayerSprites(spritesRoot.transform);
+		else Debug.LogWarning("No GameObject \"Sprites\" exists."); 
+
 		speechBubble = UI.Get.makeSpeechBubble();
+
+		// set this as the Player object in the Game singleton
+		Game.Get.PlayerController = this;
 	}
 
 	/* Get all of the children with renderers */
@@ -48,6 +54,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		// do not allow character actions if a modal dialog is shown
+		if (UI.Get.modalShowing()) return;
+
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 		
@@ -59,25 +68,42 @@ public class PlayerController : MonoBehaviour {
 	/*
 	 * Respond to the interact button (E) if collidingWith a GameObject
 	 */
-	void LateUpdate() {
-		if (collidingWith != null) {
+	public void interact() {
+		// do not allow character actions if a modal dialog is shown
+		if (collidingWith.Count > 0) {
 			// interact with an interactable
-			if (Input.GetKeyDown(KeyCode.E)) {
-				Interactable obj = collidingWith.GetComponent<Interactable>();
-				if (obj != null) {
-					obj.interact(gameObject);
+			Interactable obj = collidingWith.First.Value.GetComponent<Interactable>();
+
+			if (obj != null) {
+				// if still exists, move it to the back of the queue to cycle through currently colliding items
+				if (obj.interact(gameObject)) {
+					var first = collidingWith.First;
+
+					collidingWith.RemoveFirst();
+					collidingWith.AddLast(first);
+				}
+				else {
+					collidingWith.RemoveFirst();
 				}
 			}
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		collidingWith = other.gameObject;
+		collidingWith.AddLast(other.gameObject);
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		if (other.gameObject != collidingWith) Debug.LogError("You seem to have overlapping colliders.");
+		collidingWith.Remove(other.gameObject);
+	}
 
-		collidingWith = null;
+	/*
+	 * Have the player display a message in his speech bubble.
+	 * If seconds is negative, the message is displayed until the function is called again.
+	 */
+	public void say(string message, int seconds = 2) {
+		speechBubble.displayBubble(gameObject, message);
+
+		if (seconds >= 0) speechBubble.fadeOutAndClose(seconds);
 	}
 }

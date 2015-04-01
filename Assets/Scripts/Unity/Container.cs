@@ -15,8 +15,10 @@ public class Container : Interactable {
 		container.MaxCapacity = 10;
 	}
 
-	public override void interact(GameObject actor)	{
+	public override bool interact(GameObject actor)	{
 		UI.Get.Storage.toggleShowing(container);
 		UI.Get.refreshAll();
+
+		return true; // always exists after interacting
 	}
 }

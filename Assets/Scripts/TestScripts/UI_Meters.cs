@@ -17,7 +17,7 @@ public class UI_Meters : MonoBehaviour {
 	{
         Color color = new Color(Random.value, Random.value, Random.value);
         GetComponent<Renderer>().material.color = color;
-        print("ColorChanged");
+        //print("ColorChanged");
     }
 
 	// Use this for initialization

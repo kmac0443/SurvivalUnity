@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AttributeManager : MonoBehaviour, IDamageAffecting
+public class AttributeManager : IDamageAffecting
 {
     private int constitution;
     private int strength;
@@ -85,18 +85,4 @@ public class AttributeManager : MonoBehaviour, IDamageAffecting
         //TODO: under review
         return this.Strength + this.Dexterity;
     }
-
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-    // Use this for initialization
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
 }

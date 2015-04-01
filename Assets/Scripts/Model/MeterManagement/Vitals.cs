@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Vitals : MonoBehaviour {
+public class Vitals {
 
     private Dictionary<MeterType, Meter> meters;
 
@@ -68,20 +68,4 @@ public class Vitals : MonoBehaviour {
             this.meters[key].Decrease(amount);
         }
     }
-
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-
-
 }

@@ -58,19 +58,4 @@ public class NPC : Person
     {
         this.dialogue = phrases;
     }
-
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

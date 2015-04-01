@@ -5,16 +5,30 @@ using System.Collections;
  * An item that can be picked up off the ground.
  */
 public class GroundItem : Interactable {
-	// TODO: What is an item? Is the type enough to create an item? (e.g. are descriptions, other things looked up?)
 	public Item item;
 
-	public override void interact(GameObject actor) {
-		if (Test_ModelScript.inv.AddItem(item)) {
+	public override bool interact(GameObject actor) {
+		if (Game.Get.Player.AddItem(item)) {
+			Game.Get.PlayerController.say("Wow! I found " + item.Label);
 			Destroy(gameObject);
+			return false;
 		}
 		else {
-			Debug.LogError("Cannot pick up " + item.ItemType + " on the ground.");
+			Debug.Log("Cannot pick up " + item.ItemType + " on the ground.");
+			return true;
 		}
+	}
+
+	/*
+	 * Construct a new GroundItem
+	 */
+	public static GameObject create(Item item, Vector3 position, string name = "Ground Item", Transform parent = null) {
+		GameObject newItem = Instantiate(Resources.Load("GroundItem"), position, Quaternion.identity) as GameObject;
+		newItem.GetComponent<GroundItem>().setItem(item);
+
+		if (parent != null) newItem.transform.SetParent(parent);
+
+		return newItem;
 	}
 
 	public void setItem(Item item) {

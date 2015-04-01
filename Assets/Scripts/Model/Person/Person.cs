@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Person : MonoBehaviour
+public class Person
 {
-    protected Inventory inventory;
+	protected Inventory inventory;
+
+	public Inventory Inventory {
+		get { return inventory; }
+	}
 
     public Person()
     {
@@ -48,20 +52,5 @@ public class Person : MonoBehaviour
     public virtual void OnUpdate()
     {
         //Console.WriteLine("OnUpdate: I'm a Person");
-    }
-    
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

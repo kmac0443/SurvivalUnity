@@ -23,7 +23,7 @@ public class UI {
 		tooltipObject.transform.SetParent(foregroundCanvas.transform);
 
 		// set up the default font
-		defaultFont = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+		DefaultFont = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
 	}
 	
 	private StorageWindow inventoryWindow;
@@ -33,7 +33,7 @@ public class UI {
 	private StorageItem currentItem = null;
 	private GameObject foregroundCanvas;
 
-	private Font defaultFont;
+	public Font DefaultFont { get; private set; }
 
 	public static void initialize(StorageWindow inventory, StorageWindow container) {
 		instance = new UI(inventory, container);
@@ -105,7 +105,7 @@ public class UI {
 		get { return currentItem; }
 	}
 
-	public Font DefaultFont {
-		get { return defaultFont; }
+	public bool modalShowing() {
+		return inventoryWindow.isShowing() || storageWindow.isShowing();
 	}
 }

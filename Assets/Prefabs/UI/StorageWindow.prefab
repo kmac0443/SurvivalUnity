@@ -92,8 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 186996, guid: 4bb626c239e910340a13713470a469dd, type: 2}
   slotPrefab: {fileID: 168276, guid: cc4dd303cd186114a90feab7b19e5a76, type: 2}
-  name: Container
-  cellSize: {x: 48, y: 48}
+  windowName: 
+  cellSize: {x: 64, y: 64}
 --- !u!222 &22269080
 CanvasRenderer:
   m_ObjectHideFlags: 1

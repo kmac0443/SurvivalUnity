@@ -124,11 +124,18 @@ public class StorageWindow : MonoBehaviour, IDropHandler {
 	public void show(StorageContainer storage) {
 		if (currentContainer != null) {
 			if (currentContainer == storage) return; // do nothing if same
-			else clear(); // close if it's something else
+			else clear(); // clear it if it's something else
 		}
-		
+
 		currentContainer = storage;
 		displayStorageContainer();
+	}
+
+	/**
+	 * Get whether the window is showing or not
+	 */
+	public bool isShowing() {
+		return currentContainer != null;
 	}
 
 	/*
@@ -145,7 +152,7 @@ public class StorageWindow : MonoBehaviour, IDropHandler {
 				clear();
 			}
 		}
-
+		
 		currentContainer = storage;
 		displayStorageContainer();
 	}

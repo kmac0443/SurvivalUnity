@@ -36,19 +36,4 @@ public class Player : Person
         }
         this.vitals.Decrease(MeterType.Health, damageAfterResistance);
     }
-
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
