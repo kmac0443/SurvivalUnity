@@ -7,20 +7,24 @@ using System.Collections;
 public class ResourceObjectController : Interactable {
 	public Type requiredItem;
 	public ResourceObject myObject;
+	private Player player;
+	private PlayerController playerController;
 	
 	public override bool interact(GameObject actor) {
 		Debug.Log ("Interacted with a resource");
 		/**
-		 * if(player.inventory.hasEquipped(requiredItem) {
-		 * 		if(Game.Get.Player.stamia >= myObject.requiredStamina) {
+		 * if(player.Inventory.hasEquipped(requiredItem) {
+		 * 		if(player.stamia >= myObject.requiredStamina) {
 		 * 			startCorutine("ResourceInteract");
 		 * 		}
 		 * 		else {
-		 * 			Game.Get.PlayerController.say("I'm too tired to do that");
+		 * 			playerController.speechBubble.displayBubble(player, "I'm too tired to do this.");
+					playerController.speechBubble.fadeOutAndClose(3);
 		 *		}
 		 * }
 		 * else {
-		 * 		player.say("I don't have the right item equipped");
+		 * 		playerController.speechBubble.displayBubble(player, "I don't have the right item equipped.");
+					playerController.speechBubble.fadeOutAndClose(3);
 		 * }
 		 * */
 		return true;
@@ -32,7 +36,7 @@ public class ResourceObjectController : Interactable {
 		//slowly decrement bar;
 		Time.timeScale = 1;
 		Item resourceItem = myObject.OnGather ();
-		if (!Game.Get.Player.AddItem(myObject.OnGather())) {
+		if (!player.AddItem(myObject.OnGather())) {
 			//dropItem(resourceItem);
 		}
 		//player.decrementStamina (myObject.requiredStamina);
@@ -43,5 +47,7 @@ public class ResourceObjectController : Interactable {
 	}
 	
 	void Start() {
+		player = Game.Get.Player;
+		playerController = Game.Get.PlayerController;
 	}
 }
