@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.ModelObjects.ItemManagement;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Model.ModelObjects.Items;
-namespace Model.ModelObjects.ItemManagement.Tests
+namespace Tests
 {
     [TestClass()]
-    public class StorageContainer_UnitTests
+    public class StorageContainer_Tests
     {
         [TestMethod()]
         public void StorageContainer_Test()
@@ -18,6 +16,13 @@ namespace Model.ModelObjects.ItemManagement.Tests
             Assert.AreEqual(100, storage.MaxCapacity);
             Assert.AreEqual(0, storage.Capacity);
             Assert.AreEqual(0, storage.Items.Count);
+        }
+
+        [TestMethod()]
+        public void Contains_Test()
+        {
+            //TODO
+            Assert.Fail();
         }
 
         [TestMethod()]
@@ -45,10 +50,9 @@ namespace Model.ModelObjects.ItemManagement.Tests
             Assert.AreEqual(1, storage.Items.Count);
             Assert.AreEqual(girth, storage.Capacity);
 
-            Assert.IsTrue(storage.RemoveItem(mock));            
+            Assert.IsTrue(storage.RemoveItem(mock));
             Assert.AreEqual(0, storage.Items.Count);
             Assert.AreEqual(0, storage.Capacity);
         }
-
     }
 }

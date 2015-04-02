@@ -48,7 +48,7 @@ public class SpriteTable {
 	 * The "Items" spritesheet is at Items/Items.png
 	 * Can add additional overloads for other enums as/if needed.
 	 */
-	public static Sprite Get(Item.Type item) {
+	public static Sprite Get(Type item) {
 		return getSpriteTable("Items/Items.png").getSprite((int)item);
 	}
 }

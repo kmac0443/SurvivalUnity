@@ -11,3 +11,16 @@ public enum EquipmentSlot : int
     Chest = 4,
     Feet = 5,
 }
+
+public enum Type
+{
+    Canteen,
+    FishingPole,
+    Axe,
+    Dagger,
+    CraftingMaterials,
+    Pickaxe,
+    MouthFilter,
+    Shovel,
+    WaterFilter,
+}

@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.ModelObjects.Person;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Model.ModelObjects.Items;
-namespace Model.ModelObjects.Person.Tests
+namespace Tests
 {
     [TestClass()]
-    public class Person_UnitTests
+    public class Person_Tests
     {
+        [TestMethod()]
+        public void Person_Test()
+        {
+            Assert.Fail();
+        }
+
         [TestMethod()]
         public void AddItem_Test()
         {
@@ -34,16 +38,25 @@ namespace Model.ModelObjects.Person.Tests
         [TestMethod()]
         public void DealDamage_Test()
         {
-            //TODO: Meaningful Test
-            Assert.IsFalse(true);
+            Assert.Fail();
         }
 
         [TestMethod()]
         public void ReceiveDamage_Test()
         {
-            //TODO: Meaningful Test
-            Assert.IsFalse(true);
+            Assert.Fail();
         }
 
+        [TestMethod()]
+        public void OnTime_Test()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void OnUpdate_Test()
+        {
+            Assert.Fail();
+        }
     }
 }

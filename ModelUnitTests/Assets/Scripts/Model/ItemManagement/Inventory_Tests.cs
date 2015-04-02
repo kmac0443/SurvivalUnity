@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.ModelObjects.ItemManagement;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Model.ModelObjects.Items;
-using Model.ItemManagement;
-namespace Model.ModelObjects.ItemManagement.Tests
+namespace Tests
 {
     [TestClass()]
-    public class Inventory_UnitTests
+    public class Inventory_Tests
     {
         [TestMethod()]
         public void Inventory_Test()
@@ -128,6 +125,5 @@ namespace Model.ModelObjects.ItemManagement.Tests
             Assert.IsTrue(inventory.EquipItem(mock));
             Assert.AreEqual(99, inventory.DamageResistance());
         }
-
     }
 }

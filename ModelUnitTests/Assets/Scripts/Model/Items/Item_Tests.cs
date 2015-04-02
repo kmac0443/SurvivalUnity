@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.ModelObjects.Items;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Model.ItemManagement;
-namespace Model.ModelObjects.Items.Tests
+namespace Tests
 {
     [TestClass()]
-    public class Item_UnitTests
+    public class Item_Tests
     {
         [TestMethod()]
         public void Item_Test()
@@ -30,7 +28,7 @@ namespace Model.ModelObjects.Items.Tests
             int girth = 100;
             string label = "item";
             EquipmentSlot equipCode = EquipmentSlot.Feet;
-            
+
             Item item = new Item(girth, label, equipCode);
             Assert.AreEqual(girth, item.Girth);
             Assert.AreEqual(label, item.Label);
@@ -62,6 +60,13 @@ namespace Model.ModelObjects.Items.Tests
         }
 
         [TestMethod()]
+        public void Item_Test3()
+        {
+            //TODO
+            Assert.Fail();
+        }
+
+        [TestMethod()]
         public void OutgoingDamage_Test()
         {
             Item item = new Item();
@@ -86,6 +91,5 @@ namespace Model.ModelObjects.Items.Tests
             item.OnUse();
             Assert.AreEqual(0, item.Durability);
         }
-        
     }
 }

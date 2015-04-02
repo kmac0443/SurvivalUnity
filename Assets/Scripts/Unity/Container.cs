@@ -10,8 +10,8 @@ public class Container : Interactable {
 	void Start() {
 		// TODO: temporary initialization
 		container = new StorageContainer();
-		container.AddItem(new Item(1, "A functional water filter.", Item.Type.WaterFilter));
-		container.AddItem(new Item(1, "Some logs", Item.Type.CraftingMaterials));
+		container.AddItem(new Item(1, "A functional water filter.", Type.WaterFilter));
+		container.AddItem(new Item(1, "Some logs", Type.CraftingMaterials));
 		container.MaxCapacity = 10;
 	}
 

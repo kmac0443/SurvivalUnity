@@ -38,7 +38,7 @@ public class GroundItem : Interactable {
 
 	void Start() {
 		if (item == null) {
-			item = new Item(2, "Some logs", Item.Type.CraftingMaterials);
+			item = new Item(2, "Some logs", Type.CraftingMaterials);
 		}
 		GetComponent<SpriteRenderer>().sprite = SpriteTable.Get(item.ItemType);
 	}

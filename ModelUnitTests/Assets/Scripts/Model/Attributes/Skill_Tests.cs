@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.ModelObjects.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-namespace Model.ModelObjects.Attributes.Tests
+namespace Tests
 {
     [TestClass()]
-    public class Skill_UnitTests
+    public class Skill_Tests
     {
         [TestMethod()]
         public void Skill_Test()
         {
             Skill skill = new Skill();
-            
+
             //ID is read only
             Guid id = skill.ID;
             Assert.AreEqual(id, skill.ID);

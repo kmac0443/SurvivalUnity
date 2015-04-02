@@ -16,16 +16,4 @@ public class Building : MonoBehaviour {
         set { this.storage = value; }
     }
 
-    //////////////////////
-    /// Unity Specific ///
-    ////////////////////// 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

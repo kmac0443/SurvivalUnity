@@ -5,7 +5,7 @@ using System.Collections;
  * An item that can be picked up off the ground.
  */
 public class ResourceObjectController : Interactable {
-	public Item.Type requiredItem;
+	public Type requiredItem;
 	public ResourceObject myObject;
 	
 	public override bool interact(GameObject actor) {

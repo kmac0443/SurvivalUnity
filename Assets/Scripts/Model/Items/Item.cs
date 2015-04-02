@@ -5,20 +5,7 @@ using System.Collections.Generic;
 
 public class Item : IDamageAffecting
 {
-	public enum Type
-	{
-		Canteen,
-		FishingPole,
-		Axe,
-		Dagger,
-		CraftingMaterials,
-		Pickaxe,
-		MouthFilter,
-		Shovel,
-		WaterFilter,
-	}
-
-    private Guid uniqueID;
+	private Guid uniqueID;
     private int inventorySpaceRequired;
     private string label;
     private EquipmentSlot equipCode;
@@ -27,8 +14,7 @@ public class Item : IDamageAffecting
     private int durability;
     private int maxDurability;
 	private Type type;
-
-
+    
     // Default Constructor
     public Item()
     {

@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.World;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-namespace Model.World.Tests
+namespace Tests
 {
     [TestClass()]
-    public class ResourceObject_UnitTests
+    public class ResourceObject_Tests
     {
         [TestMethod()]
         public void ResourceObject_Test()
         {
-            Assert.IsFalse(true);
+            Assert.Fail();
         }
 
         [TestMethod()]
         public void OnGather_Test()
         {
-            Assert.IsFalse(true);
+            Assert.Fail();
         }
     }
 }
