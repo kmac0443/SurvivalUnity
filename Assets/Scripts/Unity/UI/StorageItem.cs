@@ -39,7 +39,7 @@ public class StorageItem : MonoBehaviour, TooltipMessage, IBeginDragHandler, IDr
 
 	private void createGirthPlaceholders(StorageWindow parent) {
 		for (int i = 0; i < item.Girth-1; ++i) {
-			StorageItem girthPlaceholder = Instantiate(this);
+			StorageItem girthPlaceholder = Instantiate(this) as StorageItem;
 			girthPlaceholder.convertToPlaceholder(this);
 			girthPlaceholder.transform.SetParent(parent.transform);
 			girth.Add(girthPlaceholder);
