@@ -10,8 +10,9 @@ public class UIControl : MonoBehaviour {
 	public GameObject containerWindowObject;
 
 	// Use this for initialization
-	void Start () {
+	void Awake() {
 		Inventory.StorageContainerChangedEvent += InventoryChanged;
+
 		UI.initialize(
 			inventoryWindowObject.GetComponent<StorageWindow>(),
 			containerWindowObject.GetComponent<StorageWindow>()

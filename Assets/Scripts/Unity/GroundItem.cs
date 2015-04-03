@@ -7,6 +7,10 @@ using System.Collections;
 public class GroundItem : Interactable {
 	public Item item;
 
+	public int girth;
+	public string description;
+	public Type type;
+
 	public override bool interact(GameObject actor) {
 		if (Game.Get.Player.AddItem(item)) {
 			Game.Get.PlayerController.say("Wow! I found " + item.Label);
@@ -38,8 +42,12 @@ public class GroundItem : Interactable {
 
 	void Start() {
 		if (item == null) {
-			item = new Item(2, "Some logs", Type.CraftingMaterials);
+			item = new Item(girth, description, type);
 		}
 		GetComponent<SpriteRenderer>().sprite = SpriteTable.Get(item.ItemType);
+	}
+
+	void OnValidate() {
+		Start();
 	}
 }

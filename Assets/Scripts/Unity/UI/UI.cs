@@ -37,6 +37,7 @@ public class UI {
 
 	public static void initialize(StorageWindow inventory, StorageWindow container) {
 		instance = new UI(inventory, container);
+		Debug.LogWarning("INITIALIED");
 	}
 
 	public static UI Get {
@@ -60,7 +61,7 @@ public class UI {
 		GameObject bubbleObject = new GameObject("Speech Bubble");
 		bubbleObject.transform.SetParent(foregroundCanvas.transform);
 
-		return  bubbleObject.AddComponent<Tooltip>();;
+		return bubbleObject.AddComponent<Tooltip>();
 	}
 
 	public void closeTooltip() {

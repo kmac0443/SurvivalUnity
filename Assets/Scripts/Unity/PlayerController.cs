@@ -40,7 +40,10 @@ public class PlayerController : MonoBehaviour {
 	private void reorderSprites() {
 		// this is O(n) in the number of sprites, which shouldn't be a problem
 		foreach (GameObject sprite in sprites) {
-			if (SpriteOrderer.InFrontOf(this.gameObject, sprite)) {
+			if (sprite == null) {
+				continue;
+			}
+			else if (SpriteOrderer.InFrontOf(this.gameObject, sprite)) {
 				if (sprite.GetComponent<Renderer>().sortingOrder > GetComponent<Renderer>().sortingOrder) {
 					// move the sprite behind you
 					sprite.GetComponent<Renderer>().sortingOrder -= GetComponent<Renderer>().sortingOrder+1;
@@ -51,6 +54,8 @@ public class PlayerController : MonoBehaviour {
 				sprite.GetComponent<Renderer>().sortingOrder += GetComponent<Renderer>().sortingOrder+1;
 			}
 		}
+
+		sprites.Remove(null);
 	}
 
 	void FixedUpdate() {

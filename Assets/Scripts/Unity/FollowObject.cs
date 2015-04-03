@@ -8,28 +8,27 @@ using System.Collections;
  * the tracking object adjusts.
  */
 public class FollowObject : MonoBehaviour {
-	// the object to track
-	private Transform obj;
-
 	/* The tag of the object to follow */
-	public GameObject target;
+	public Transform target;
 
 	/* How far back the tracking object (camera) sits from the scene */
 	public Vector3 offset = new Vector3(0, 0, -1);
 
 	/* The radius in which the player can move before the camera adjusts */
 	public float radius = 1.0f;
-
-	void Awake() {
-		obj = target.transform;
-	}
 	
+
 	void Update() {
-		Vector3 difference = transform.position - obj.position;
+		Debug.LogWarning(this.gameObject);
+		Vector3 difference = transform.position - target.position;
 		difference.z = 0;
 
 		if (difference.magnitude > radius) {
-			transform.position = obj.position + offset + difference.normalized * radius;
+			transform.position = target.position + offset + difference.normalized * radius;
 		}
+	}
+
+	void OnValidate() {
+		if (target != null) Update();
 	}
 }
