@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.93827534, y: -1.73366261, z: 0}
+  m_LocalPosition: {x: 1.01829863, y: -3.21679759, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,11 +39,11 @@ CircleCollider2D:
   m_GameObject: {fileID: 156344}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .75
+  m_Radius: 1
 --- !u!61 &6149644
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5dfc21ef4c87a4d8aaad17e31aa0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textFile: {fileID: 0}
+  textFile: {fileID: 4900000, guid: 40a094112b907234ab6ab8a772a492ce, type: 3}
 --- !u!212 &21216612
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d0c1d9b58550af4a941f0ffea266a33, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10173ab2d63d7ea49b689a31c51deb11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
