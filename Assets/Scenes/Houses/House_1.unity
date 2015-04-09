@@ -2826,6 +2826,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1063118623
+Transform:
+  m_PrefabParentObject: {fileID: 409988, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
+  m_PrefabInternal: {fileID: 1063118622}
 --- !u!1001 &1063153255
 Prefab:
   m_ObjectHideFlags: 0
@@ -3080,9 +3084,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa125ab607afb041a3187a4c6dd698f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1063118623}
   offset: {x: 0, y: 0, z: -1}
-  radius: 1
+  radius: 2
 --- !u!4 &1154759528
 Transform:
   m_PrefabParentObject: {fileID: 438914, guid: da4410bf08cd85747a4e812ac08fdfb6, type: 2}

@@ -3483,6 +3483,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &978547061
+Transform:
+  m_PrefabParentObject: {fileID: 409988, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
+  m_PrefabInternal: {fileID: 978547060}
 --- !u!1001 &978953120
 Prefab:
   m_ObjectHideFlags: 0
@@ -4181,6 +4185,7 @@ GameObject:
   - 92: {fileID: 1182342572}
   - 124: {fileID: 1182342571}
   - 81: {fileID: 1182342570}
+  - 114: {fileID: 1182342575}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4253,6 +4258,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 148
+--- !u!114 &1182342575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182342569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa125ab607afb041a3187a4c6dd698f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 978547061}
+  offset: {x: 0, y: 0, z: -1}
+  radius: 2
 --- !u!1001 &1189930173
 Prefab:
   m_ObjectHideFlags: 0
