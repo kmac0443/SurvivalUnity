@@ -15,10 +15,12 @@ public class UI {
 		foregroundCanvas = new GameObject("Foreground Canvas", new System.Type[]{typeof(Canvas)});
 		foregroundCanvas.GetComponent<Canvas>().sortingOrder = int.MaxValue;
 		foregroundCanvas.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+		//Object.DontDestroyOnLoad(foregroundCanvas);
 
 		// add a tooltip object to the foreground canvas
 		GameObject tooltipObject = new GameObject("Tooltip");
 		tooltip = tooltipObject.AddComponent<Tooltip>();
+		//Object.DontDestroyOnLoad(tooltipObject);
 
 		tooltipObject.transform.SetParent(foregroundCanvas.transform);
 
@@ -37,7 +39,6 @@ public class UI {
 
 	public static void initialize(StorageWindow inventory, StorageWindow container) {
 		instance = new UI(inventory, container);
-		Debug.LogWarning("INITIALIED");
 	}
 
 	public static UI Get {
@@ -56,7 +57,7 @@ public class UI {
 			tooltip.displayTooltip(obj);
 		}
 	}
-
+	int i = 0;
 	public Tooltip makeSpeechBubble() {
 		GameObject bubbleObject = new GameObject("Speech Bubble");
 		bubbleObject.transform.SetParent(foregroundCanvas.transform);

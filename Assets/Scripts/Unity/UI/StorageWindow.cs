@@ -20,6 +20,10 @@ public class StorageWindow : MonoBehaviour, IDropHandler {
 	private GameObject grid;
 	private GameObject title;
 
+	void Start() {
+		//DontDestroyOnLoad(gameObject);
+	}
+
 	private void initialize() {
 		gameObject.SetActive(true);
 		items = new List<StorageItem>();

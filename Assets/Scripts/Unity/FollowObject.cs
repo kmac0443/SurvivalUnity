@@ -19,7 +19,6 @@ public class FollowObject : MonoBehaviour {
 	
 
 	void Update() {
-		Debug.LogWarning(this.gameObject);
 		Vector3 difference = transform.position - target.position;
 		difference.z = 0;
 

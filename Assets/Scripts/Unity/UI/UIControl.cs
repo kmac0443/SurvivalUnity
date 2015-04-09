@@ -19,6 +19,10 @@ public class UIControl : MonoBehaviour {
 		);
 	}
 
+	void Start() {
+		//DontDestroyOnLoad(gameObject);
+	}
+
 	/*
 	 *	This should be the only function that checks for keypresses, at least for now (other than player movement in FixedUpdate).
 	 *  The same keys should not be checked in multiple places to avoid reopening dialogs and stuff.

@@ -4,4 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Houses/House_0.unity
+  - enabled: 1
+    path: Assets/Scenes/Houses/House_1.unity
+  - enabled: 1
+    path: Assets/Scenes/Houses/House_2.unity
+  - enabled: 1
+    path: Assets/Scenes/Houses/House_3.unity
+  - enabled: 1
+    path: Assets/Scenes/Houses/House_4.unity
+  - enabled: 1
+    path: Assets/Scenes/Houses/House_5.unity
+  - enabled: 1
+    path: Assets/Scenes/Houses/House_6.unity
+  - enabled: 1
+    path: Assets/Scenes/Houses/House_7.unity
+  - enabled: 1
+    path: Assets/Scenes/Essen.unity
