@@ -11,6 +11,8 @@ GameObject:
   - 212: {fileID: 21257236}
   - 114: {fileID: 11457236}
   - 60: {fileID: 6057236}
+  - 61: {fileID: 6125668}
+  - 114: {fileID: 11463256}
   m_Layer: 0
   m_Name: House13
   m_TagString: Untagged
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -82.6999969, y: .5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,6 +59,19 @@ PolygonCollider2D:
       - {x: 1.37036085, y: -1.56875181}
       - {x: 2.43320322, y: -1.56875277}
       - {x: 2.42717171, y: -.893574238}
+--- !u!61 &6125668
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157236}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: .686828613, y: -1.15063334}
+  serializedVersion: 2
+  m_Size: {x: 1.08674526, y: 1.91373301}
 --- !u!114 &11457236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,6 +85,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ratio: .25
   anchor: 0
+--- !u!114 &11463256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0078b2e8920e242a936ae954fd12f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goToScene: House_7
 --- !u!212 &21257236
 SpriteRenderer:
   m_ObjectHideFlags: 1
