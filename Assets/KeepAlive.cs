@@ -19,6 +19,6 @@ public class KeepAlive : MonoBehaviour {
 
 	/* Set a default name */
 	void OnValidate() {
-		if (uniqueName == null) uniqueName = gameObject.name;
+		if (uniqueName == null || uniqueName.Length == 0) uniqueName = gameObject.name;
 	}
 }
