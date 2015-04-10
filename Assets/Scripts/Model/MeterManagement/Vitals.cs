@@ -68,4 +68,16 @@ public class Vitals {
             this.meters[key].Decrease(amount);
         }
     }
+
+	public double Percent(MeterType key)
+	{
+		if (this.meters.ContainsKey(key))
+		{
+			return this.meters[key].Percent();
+		}
+		else
+		{
+			return Double.NaN;
+		}
+	}
 }

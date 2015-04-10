@@ -67,10 +67,16 @@ public class Meter
     public void Increase(int amount)
     {
         this.Current += Math.Abs(amount);
+		if (Current > Max) Current = Max;
     }
 
     public void Decrease(int amount)
     {
         this.Current -= Math.Abs(amount);
+		if (Current < Min) Current = Min;
     }
+
+	public double Percent() {
+		return (double)(current - min) / (double)(max - min);
+	}
 }

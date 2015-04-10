@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 
+/* Display a meter as a series of images */
 public class PictureMeter : MonoBehaviour {
 	public int numberOfImages;
 	public Sprite image;
@@ -10,14 +11,13 @@ public class PictureMeter : MonoBehaviour {
 
 	Image[] images = null;
 
-	// Recolor the images every frame, just because we can
+	// Recolor the images every frame (easier than on change)
 	void Update () {
 		double percent = Game.Get.Player.vitals.Percent(meter);
-
 		double filledImages = percent * numberOfImages;
-		int fullImages = (int)filledImages;
 
-		float percentLast = (float)filledImages - fullImages;
+		int fullImages = (int)filledImages;
+		float percentLast = (float)filledImages - fullImages; // how full the last image is
 
 		// fill the filled images
 		for (int i = 0; i < fullImages; ++i) {
@@ -28,6 +28,7 @@ public class PictureMeter : MonoBehaviour {
 		if (fullImages < numberOfImages) {
 			images[fullImages].color = new Color(percentLast, percentLast, percentLast);
 
+			// blank the unfilled images
 			for (int i = fullImages+1; i < numberOfImages; ++i) {
 				images[i].color = Color.black;
 			}

@@ -5,7 +5,7 @@ public class Player : Person
 {
     private AttributeManager attributes;
     private SkillManager skills;
-    private Vitals vitals;
+	public Vitals vitals {get; private set;}
 
     public Player()
     {

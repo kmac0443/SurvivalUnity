@@ -23,14 +23,18 @@ public class UIControl : MonoBehaviour {
 		//DontDestroyOnLoad(gameObject);
 	}
 
+	public void showInventory() {
+		UI.Get.Inventory.toggleShowing(Game.Get.Player.Inventory);
+		UI.Get.refreshAll();
+	}
+
 	/*
 	 *	This should be the only function that checks for keypresses, at least for now (other than player movement in FixedUpdate).
 	 *  The same keys should not be checked in multiple places to avoid reopening dialogs and stuff.
 	 */
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.I)) {
-			UI.Get.Inventory.toggleShowing(Game.Get.Player.Inventory);
-			UI.Get.refreshAll();
+			showInventory();
 		}
 		else if (Input.GetKeyDown(KeyCode.E)) {
 			if (UI.Get.modalShowing()) UI.Get.closeAll();
@@ -38,6 +42,21 @@ public class UIControl : MonoBehaviour {
 		}
 		else if (Input.GetKeyDown(KeyCode.Escape)) {
 			UI.Get.closeAll();
+		}
+
+		// TODO: this shouldn't really be here, but whatever
+		// change the levels of food or wate
+		if (Input.GetKey(KeyCode.Minus)) {
+			Game.Get.Player.vitals.Decrease(MeterType.Food, 1);
+		}
+		else if (Input.GetKey(KeyCode.Equals)) {
+			Game.Get.Player.vitals.Increase(MeterType.Food, 1);
+		}
+		if (Input.GetKey(KeyCode.KeypadMinus)) {
+			Game.Get.Player.vitals.Decrease(MeterType.Water, 1);
+		}
+		else if (Input.GetKey(KeyCode.KeypadPlus)) {
+			Game.Get.Player.vitals.Increase(MeterType.Water, 1);
 		}
 	}
 
