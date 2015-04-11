@@ -13,7 +13,7 @@ public class GroundItem : Interactable {
 
 	public override bool interact(GameObject actor) {
 		if (Game.Get.Player.AddItem(item)) {
-			Game.Get.PlayerController.say("Wow! I found " + item.Label);
+			Game.Get.PlayerController.say("You found " + item.Label);
 			Destroy(gameObject);
 			return false;
 		}
