@@ -62,14 +62,50 @@ public class PlayerController : MonoBehaviour {
 		sprites.Remove(null);
 	}
 
+	private int updateCalls = 0;
+	public int meterChangeDelay = 50;
+
+	private void updateMeters(bool moving) {
+		updateCalls += 1;
+
+		const int amount = 1;
+
+		if (updateCalls > meterChangeDelay) {
+			updateCalls = 0;
+
+			if (moving) {
+				Game.Get.Player.vitals.Decrease(MeterType.Food, amount);
+				Game.Get.Player.vitals.Decrease(MeterType.Water, 2*amount);
+				Game.Get.Player.vitals.Decrease(MeterType.Stamina, amount);
+			}
+			else {
+				Game.Get.Player.vitals.Increase(MeterType.Stamina, amount);
+			}
+
+			if (Application.loadedLevelName == "Essen") {
+				Game.Get.Player.vitals.Increase(MeterType.Ash, amount);
+			}
+			else {
+				Game.Get.Player.vitals.Decrease(MeterType.Ash, amount);
+			}
+		}
+	}
+
 	void FixedUpdate() {
 		// do not allow character actions if a modal dialog is shown
 		if (UI.Get.modalShowing()) return;
 
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
-		
-		GetComponent<Rigidbody2D>().MovePosition(GetComponent<Rigidbody2D>().position + speed * new Vector2(moveHorizontal, moveVertical) * Time.deltaTime);
+
+		if (moveHorizontal != 0 || moveVertical != 0) {
+			GetComponent<Rigidbody2D>().MovePosition(GetComponent<Rigidbody2D>().position + speed * new Vector2(moveHorizontal, moveVertical) * Time.deltaTime);
+
+			updateMeters(true);
+		}
+		else {
+			updateMeters(false);
+		}
 
 		reorderSprites();
 	}

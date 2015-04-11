@@ -31,6 +31,20 @@ public class StorageContainer
         return false;
     }
 
+	public bool ContainsType(params Type[] types)
+	{
+		foreach (Item item in items)
+		{
+			foreach (Type type in types) {
+				if (item.ItemType == type)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
     public int MaxCapacity
     {
         get { return this.maxCapacity; }
