@@ -45,10 +45,16 @@ public class UIControl : MonoBehaviour {
 		if (Input.GetKey(KeyCode.F)) {
 			changeMeter(MeterType.Food);
 		}
-		else if (Input.GetKey(KeyCode.H)) {
+		if (Input.GetKey(KeyCode.G)) {
 			changeMeter(MeterType.Water);
 		}
-		else if (Input.GetKey(KeyCode.G)) {
+		if (Input.GetKey(KeyCode.H)) {
+			changeMeter(MeterType.Health);
+		}
+		if (Input.GetKey(KeyCode.J)) {
+			changeMeter(MeterType.Ash);
+		}
+		if (Input.GetKey(KeyCode.K)) {
 			changeMeter(MeterType.Stamina);
 		}
 	}
