@@ -48,6 +48,9 @@ public class UIControl : MonoBehaviour {
 		else if (Input.GetKey(KeyCode.H)) {
 			changeMeter(MeterType.Water);
 		}
+		else if (Input.GetKey(KeyCode.G)) {
+			changeMeter(MeterType.Stamina);
+		}
 	}
 
 	/* Change the meter based on whether shift is pressed */
