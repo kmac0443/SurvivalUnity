@@ -13,19 +13,20 @@ public class UI {
 
 		// this canvas renders on top of any other canvases
 		foregroundCanvas = new GameObject("Foreground Canvas", new System.Type[]{typeof(Canvas)});
-		foregroundCanvas.GetComponent<Canvas>().sortingOrder = int.MaxValue;
+		foregroundCanvas.GetComponent<Canvas>().sortingOrder = 32767;
 		foregroundCanvas.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
-		//Object.DontDestroyOnLoad(foregroundCanvas);
+		Object.DontDestroyOnLoad(foregroundCanvas);
 
 		// add a tooltip object to the foreground canvas
 		GameObject tooltipObject = new GameObject("Tooltip");
 		tooltip = tooltipObject.AddComponent<Tooltip>();
-		//Object.DontDestroyOnLoad(tooltipObject);
+		Object.DontDestroyOnLoad(tooltipObject);
 
 		tooltipObject.transform.SetParent(foregroundCanvas.transform);
 
 		// set up the default font
-		DefaultFont = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+		//DefaultFont = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+		DefaultFont = Resources.Load<Font>("Garamond");
 	}
 	
 	private StorageWindow inventoryWindow;
@@ -38,7 +39,10 @@ public class UI {
 	public Font DefaultFont { get; private set; }
 
 	public static void initialize(StorageWindow inventory, StorageWindow container) {
-		instance = new UI(inventory, container);
+		// never reinitialize
+		if (instance == null) {
+			instance = new UI(inventory, container);
+		}
 	}
 
 	public static UI Get {

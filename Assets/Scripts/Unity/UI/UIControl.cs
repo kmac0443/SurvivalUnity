@@ -19,10 +19,6 @@ public class UIControl : MonoBehaviour {
 		);
 	}
 
-	void Start() {
-		//DontDestroyOnLoad(gameObject);
-	}
-
 	public void showInventory() {
 		UI.Get.Inventory.toggleShowing(Game.Get.Player.Inventory);
 		UI.Get.refreshAll();
@@ -65,6 +61,6 @@ public class UIControl : MonoBehaviour {
 	}
 
 	void InventoryChanged(StorageContainer container) {
-		UI.Get.refreshAll ();
+		UI.Get.refreshAll();
 	}
 }

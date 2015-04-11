@@ -13,7 +13,8 @@ public class NPCController : Interactable {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> () as Animator;
-		StartCoroutine ("RandomMovement");
+		if (animator != null) StartCoroutine ("RandomMovement");
+
 		if (textFile != null) {
 			dialogLines = (textFile.text.Split('\n'));
 		}

@@ -39,8 +39,8 @@ public class StorageWindow : MonoBehaviour, IDropHandler {
 
 		title.GetComponent<Text>().text = windowName;
 		title.GetComponent<Text>().font = UI.Get.DefaultFont;
-		title.GetComponent<Text>().fontSize = 16;
-		title.GetComponent<Text>().color = Color.black;
+		title.GetComponent<Text>().fontSize = 20;
+		title.GetComponent<Text>().color = Color.white;
 		title.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
 		title.GetComponent<Text>().supportRichText = true;
 
