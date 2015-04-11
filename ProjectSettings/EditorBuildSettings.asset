@@ -22,4 +22,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Houses/House_7.unity
   - enabled: 1
+    path: Assets/Scenes/Houses/Warehouse_0.unity
+  - enabled: 1
     path: Assets/Scenes/Essen.unity

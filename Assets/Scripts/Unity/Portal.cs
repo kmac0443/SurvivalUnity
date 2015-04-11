@@ -11,8 +11,7 @@ public class Portal : Interactable {
 	}
 
 	public override bool interact(GameObject actor) {
-		Debug.Log(actor + " interacting with " + this);
-		Application.LoadLevel(goToScene);
+		Game.Get.changeScene(goToScene);
 		return false;
 	}
 }

@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour {
 
 		speechBubble = UI.Get.makeSpeechBubble();
 
+		if (Game.Get.playerHasStartingPosition()) {
+			this.transform.position = Game.Get.playerStartingPosition();
+		}
+
 		// set this as the Player object in the Game singleton
 		Game.Get.PlayerController = this;
 	}
