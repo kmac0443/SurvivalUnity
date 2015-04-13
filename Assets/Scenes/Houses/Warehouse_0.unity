@@ -4455,7 +4455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa125ab607afb041a3187a4c6dd698f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2124189752}
+  target: {fileID: 0}
   offset: {x: 0, y: 0, z: -1}
   radius: 2
 --- !u!1001 &625864411
@@ -14134,6 +14134,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 470792, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.44999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 470792, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470792, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -12.4499998
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486004, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
+      propertyPath: startingDirection
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
   m_IsPrefabParent: 0
@@ -16925,10 +16941,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 471704, guid: 7b16e67ed59a1714aa8259480b366370, type: 2}
   m_PrefabInternal: {fileID: 2123883880}
---- !u!4 &2124189752
-Transform:
-  m_PrefabParentObject: {fileID: 409988, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
-  m_PrefabInternal: {fileID: 1776578722}
 --- !u!1001 &2126740333
 Prefab:
   m_ObjectHideFlags: 0

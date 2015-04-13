@@ -2399,7 +2399,7 @@ Transform:
   - {fileID: 133359035}
   - {fileID: 154320944}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!1001 &377909132
 Prefab:
   m_ObjectHideFlags: 0
@@ -8693,13 +8693,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 470792, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.45000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 470792, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -12.5299997
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486004, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
+      propertyPath: startingDirection
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1412733396
-Transform:
-  m_PrefabParentObject: {fileID: 409988, guid: 056d94c61535ab045be52c19ff1e01cb, type: 2}
-  m_PrefabInternal: {fileID: 1412733395}
 --- !u!1001 &1431946165
 Prefab:
   m_ObjectHideFlags: 0
@@ -10692,7 +10700,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!114 &1769602498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10704,7 +10712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa125ab607afb041a3187a4c6dd698f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1412733396}
+  target: {fileID: 0}
   offset: {x: 0, y: 0, z: -1}
   radius: 2
 --- !u!1001 &1787286149

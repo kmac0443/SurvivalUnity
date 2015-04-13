@@ -28,6 +28,11 @@ public class FollowObject : MonoBehaviour {
 	}
 
 	void OnValidate() {
+		if (target == null) {
+			GameObject player = GameObject.Find("Player");
+			if (player != null) target = player.transform;
+		}
+
 		if (target != null) Update();
 	}
 }

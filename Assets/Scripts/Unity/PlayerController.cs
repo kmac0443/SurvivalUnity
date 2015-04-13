@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 
 /*
@@ -13,7 +13,40 @@ public class PlayerController : MonoBehaviour {
 	private HashSet<GameObject> sprites = new HashSet<GameObject>();
 	Tooltip speechBubble = null;
 
+	public Sprite standingLeft;
+	public Sprite standingRight;
+	public Sprite standingUp;
+	public Sprite standingDown;
+	public WalkingDirection startingDirection = WalkingDirection.Down;
+
+	private Sprite[] standing;
+	private WalkingDirection standingDirection;
+
+	public enum WalkingDirection { Idle = 0, Left = 1, Right = 2, Up = 3, Down = 4, };
+
+	private WalkingDirection direction = WalkingDirection.Idle;
+	public WalkingDirection Direction {
+		get {
+			return direction;
+		}
+		private set {
+			direction = value;
+			GetComponent<Animator>().SetInteger("Direction", (int)Direction);
+		}
+	}
+
+	private GameObject ghost;
+
 	void Start() {
+		standingDirection = startingDirection;
+
+		ghost = Instantiate<GameObject>(Resources.Load<GameObject>("Ghost"));
+		ghost.transform.position = this.transform.position;
+		ghost.transform.SetParent(this.transform);
+		ghost.GetComponent<Ghost>().displaySprite = GetComponent<SpriteRenderer>();
+
+		standing = new Sprite[]{null, standingLeft, standingRight, standingUp, standingDown};
+
 		GameObject spritesRoot = GameObject.Find("Sprites");
 		if (spritesRoot != null) GetAllNonPlayerSprites(spritesRoot.transform);
 		else Debug.LogWarning("No GameObject \"Sprites\" exists."); 
@@ -91,9 +124,20 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	private void stopWalking() {
+		if (Direction != WalkingDirection.Idle) {
+			standingDirection = Direction;
+			
+			Direction = WalkingDirection.Idle;
+		}
+	}
+
 	void FixedUpdate() {
 		// do not allow character actions if a modal dialog is shown
-		if (UI.Get.modalShowing()) return;
+		if (UI.Get.modalShowing()) {
+			stopWalking();
+			return;
+		}
 
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
@@ -102,12 +146,28 @@ public class PlayerController : MonoBehaviour {
 			GetComponent<Rigidbody2D>().MovePosition(GetComponent<Rigidbody2D>().position + speed * new Vector2(moveHorizontal, moveVertical) * Time.deltaTime);
 
 			updateMeters(true);
+
+			if (Math.Abs(moveHorizontal) > Math.Abs(moveVertical)) {
+				if (moveHorizontal < 0) Direction = WalkingDirection.Left;
+				else Direction = WalkingDirection.Right;
+			}
+			else {// (Math.Abs(moveHorizontal) <= Math.Abs(moveVertical))
+				if (moveVertical < 0) Direction = WalkingDirection.Down;
+				else Direction = WalkingDirection.Up;
+			}
 		}
 		else {
 			updateMeters(false);
+			stopWalking();
 		}
 
 		reorderSprites();
+	}
+
+	void LateUpdate() {
+		if (Direction == WalkingDirection.Idle) {
+			GetComponent<SpriteRenderer>().sprite = standing[(int)standingDirection];
+		}
 	}
 
 	/*
@@ -150,5 +210,9 @@ public class PlayerController : MonoBehaviour {
 		speechBubble.displayBubble(gameObject, message);
 
 		if (seconds >= 0) speechBubble.fadeOutAndClose(seconds);
+	}
+
+	void OnDestroy() {
+		Destroy(ghost);
 	}
 }
