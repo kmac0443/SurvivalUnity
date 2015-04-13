@@ -1192,7 +1192,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 439630, guid: c608a61991412bc4195b12d486243bb7, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 21216612, guid: c608a61991412bc4195b12d486243bb7, type: 2}
       propertyPath: m_SortingLayerID
