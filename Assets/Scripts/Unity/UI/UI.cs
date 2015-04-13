@@ -66,7 +66,10 @@ public class UI {
 		GameObject bubbleObject = new GameObject("Speech Bubble");
 		bubbleObject.transform.SetParent(foregroundCanvas.transform);
 
-		return bubbleObject.AddComponent<Tooltip>();
+		Tooltip tooltip = bubbleObject.AddComponent<Tooltip>();
+		tooltip.offset = new Vector3(-48, 48);
+
+		return tooltip;
 	}
 
 	public void closeTooltip() {

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Tooltip : MonoBehaviour {
-	public Vector3 offset = new Vector3(-32, 48);
+	public Vector3 offset = new Vector3(-32, 32);
 
 	public int fontSize = 14;
 	public Color fontColor = Color.black;
