@@ -3430,11 +3430,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11461796, guid: 19ca1b17c6ed90f4ea44e97b418c2d7f, type: 2}
       propertyPath: girth
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11461796, guid: 19ca1b17c6ed90f4ea44e97b418c2d7f, type: 2}
       propertyPath: description
-      value: Some Logs
+      value: logs
       objectReference: {fileID: 0}
     - target: {fileID: 21261796, guid: 19ca1b17c6ed90f4ea44e97b418c2d7f, type: 2}
       propertyPath: m_SortingLayerID

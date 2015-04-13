@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeholderColor:
     serializedVersion: 2
-    rgba: 4284769380
+    rgba: 4280821800
 --- !u!222 &22264842
 CanvasRenderer:
   m_ObjectHideFlags: 1
